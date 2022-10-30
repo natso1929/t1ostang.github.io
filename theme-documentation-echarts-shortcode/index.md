@@ -1,23 +1,23 @@
-# Theme Documentation - echarts Shortcode
+# 主题文档 - echarts Shortcode
 
 
-The `echarts` shortcode supports data visualization in Hugo with [ECharts](https://echarts.apache.org/) library.
+`echarts` shortcode 使用 [ECharts](https://echarts.apache.org/) 库提供数据可视化的功能.
 
 <!--more-->
 
-**ECharts** is a library helping you to generate interactive data visualization.
+**ECharts** 是一个帮助你生成交互式数据可视化的库.
 
-The basic chart types ECharts supports include [line series](https://echarts.apache.org/en/option.html#series-line), [bar series](https://echarts.apache.org/en/option.html#series-line), [scatter series](https://echarts.apache.org/en/option.html#series-scatter), [pie charts](https://echarts.apache.org/en/option.html#series-pie), [candle-stick series](https://echarts.apache.org/en/option.html#series-candlestick), [boxplot series](https://echarts.apache.org/en/option.html#series-boxplot) for statistics, [map series](https://echarts.apache.org/en/option.html#series-map), [heatmap series](https://echarts.apache.org/en/option.html#series-heatmap), [lines series](https://echarts.apache.org/en/option.html#series-lines) for directional information, [graph series](https://echarts.apache.org/en/option.html#series-graph) for relationships, [treemap series](https://echarts.apache.org/en/option.html#series-treemap), [sunburst series](https://echarts.apache.org/en/option.html#series-sunburst), [parallel series](https://echarts.apache.org/en/option.html#series-parallel) for multi-dimensional data, [funnel series](https://echarts.apache.org/en/option.html#series-funnel), [gauge series](https://echarts.apache.org/en/option.html#series-gauge). And it's extremely easy to create a combinition of them with ECharts.
+ECharts 提供了常规的 [折线图](https://echarts.apache.org/zh/option.html#series-line), [柱状图](https://echarts.apache.org/zh/option.html#series-line), [散点图](https://echarts.apache.org/zh/option.html#series-scatter), [饼图](https://echarts.apache.org/zh/option.html#series-pie), [K线图](https://echarts.apache.org/zh/option.html#series-candlestick), 用于统计的 [盒形图](https://echarts.apache.org/zh/option.html#series-boxplot), 用于地理数据可视化的 [地图](https://echarts.apache.org/zh/option.html#series-map), [热力图](https://echarts.apache.org/zh/option.html#series-heatmap), [线图](https://echarts.apache.org/zh/option.html#series-lines), 用于关系数据可视化的 [关系图](https://echarts.apache.org/zh/option.html#series-graph), [treemap](https://echarts.apache.org/zh/option.html#series-treemap), [旭日图](https://echarts.apache.org/zh/option.html#series-sunburst), 多维数据可视化的 [平行坐标](https://echarts.apache.org/zh/option.html#series-parallel), 还有用于 BI 的 [漏斗图](https://echarts.apache.org/zh/option.html#series-funnel), [仪表盘](https://echarts.apache.org/zh/option.html#series-gauge), 并且支持图与图之间的混搭.
 
-Just insert your ECharts option in `JSON`/`YAML`/`TOML` format in the `echarts` shortcode and that’s it.
+只需在 `echarts` shortcode 中以 `JSON`/`YAML`/`TOML`格式插入 ECharts 选项即可.
 
-Example `echarts` input in `JSON` format:
+一个 `JSON` 格式的 `echarts` 示例:
 
 ```json
 {{</* echarts */>}}
 {
   "title": {
-    "text": "Summary Line Chart",
+    "text": "折线统计图",
     "top": "2%",
     "left": "center"
   },
@@ -25,7 +25,7 @@ Example `echarts` input in `JSON` format:
     "trigger": "axis"
   },
   "legend": {
-    "data": ["Email Marketing", "Affiliate Advertising", "Video Advertising", "Direct View", "Search Engine"],
+    "data": ["邮件营销", "联盟广告", "视频广告", "直接访问", "搜索引擎"],
     "top": "10%"
   },
   "grid": {
@@ -38,47 +38,47 @@ Example `echarts` input in `JSON` format:
   "toolbox": {
     "feature": {
       "saveAsImage": {
-        "title": "Save as Image"
+        "title": "保存为图片"
       }
     }
   },
   "xAxis": {
     "type": "category",
     "boundaryGap": false,
-    "data": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    "data": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
   },
   "yAxis": {
     "type": "value"
   },
   "series": [
     {
-      "name": "Email Marketing",
+      "name": "邮件营销",
       "type": "line",
-      "stack": "Total",
+      "stack": "总量",
       "data": [120, 132, 101, 134, 90, 230, 210]
     },
     {
-      "name": "Affiliate Advertising",
+      "name": "联盟广告",
       "type": "line",
-      "stack": "Total",
+      "stack": "总量",
       "data": [220, 182, 191, 234, 290, 330, 310]
     },
     {
-      "name": "Video Advertising",
+      "name": "视频广告",
       "type": "line",
-      "stack": "Total",
+      "stack": "总量",
       "data": [150, 232, 201, 154, 190, 330, 410]
     },
     {
-      "name": "Direct View",
+      "name": "直接访问",
       "type": "line",
-      "stack": "Total",
+      "stack": "总量",
       "data": [320, 332, 301, 334, 390, 330, 320]
     },
     {
-      "name": "Search Engine",
+      "name": "搜索引擎",
       "type": "line",
-      "stack": "Total",
+      "stack": "总量",
       "data": [820, 932, 901, 934, 1290, 1330, 1320]
     }
   ]
@@ -86,23 +86,23 @@ Example `echarts` input in `JSON` format:
 {{</* /echarts */>}}
 ```
 
-The same in `YAML` format:
+一个 `YAML` 格式的 `echarts` 示例:
 
 ```yaml
 {{</* echarts */>}}
 title:
-    text: Summary Line Chart
+    text: 折线统计图
     top: 2%
     left: center
 tooltip:
     trigger: axis
 legend:
     data:
-        - Email Marketing
-        - Affiliate Advertising
-        - Video Advertising
-        - Direct View
-        - Search Engine
+        - 邮件营销
+        - 联盟广告
+        - 视频广告
+        - 直接访问
+        - 搜索引擎
     top: 10%
 grid:
     left: 5%
@@ -113,24 +113,24 @@ grid:
 toolbox:
     feature:
         saveAsImage:
-            title: Save as Image
+            title: 保存为图片
 xAxis:
     type: category
     boundaryGap: false
     data:
-        - Monday
-        - Tuesday
-        - Wednesday
-        - Thursday
-        - Friday
-        - Saturday
-        - Sunday
+        - 周一
+        - 周二
+        - 周三
+        - 周四
+        - 周五
+        - 周六
+        - 周日
 yAxis:
     type: value
 series:
-    - name: Email Marketing
+    - name: 邮件营销
       type: line
-      stack: Total
+      stack: 总量
       data:
           - 120
           - 132
@@ -139,9 +139,9 @@ series:
           - 90
           - 230
           - 210
-    - name: Affiliate Advertising
+    - name: 联盟广告
       type: line
-      stack: Total
+      stack: 总量
       data:
           - 220
           - 182
@@ -150,9 +150,9 @@ series:
           - 290
           - 330
           - 310
-    - name: Video Advertising
+    - name: 视频广告
       type: line
-      stack: Total
+      stack: 总量
       data:
           - 150
           - 232
@@ -161,9 +161,9 @@ series:
           - 190
           - 330
           - 410
-    - name: Direct View
+    - name: 直接访问
       type: line
-      stack: Total
+      stack: 总量
       data:
           - 320
           - 332
@@ -172,9 +172,9 @@ series:
           - 390
           - 330
           - 320
-    - name: Search Engine
+    - name: 搜索引擎
       type: line
-      stack: Total
+      stack: 总量
       data:
           - 820
           - 932
@@ -186,12 +186,12 @@ series:
 {{</* /echarts */>}}
 ```
 
-The same in `TOML` format:
+一个 `TOML` 格式的 `echarts` 示例:
 
 ```toml
 {{</* echarts */>}}
 [title]
-text = "Summary Line Chart"
+text = "折线统计图"
 top = "2%"
 left = "center"
 
@@ -200,11 +200,11 @@ trigger = "axis"
 
 [legend]
 data = [
-  "Email Marketing",
-  "Affiliate Advertising",
-  "Video Advertising",
-  "Direct View",
-  "Search Engine"
+  "邮件营销",
+  "联盟广告",
+  "视频广告",
+  "直接访问",
+  "搜索引擎"
 ]
 top = "10%"
 
@@ -218,28 +218,28 @@ containLabel = true
 [toolbox]
 [toolbox.feature]
 [toolbox.feature.saveAsImage]
-title = "Save as Image"
+title = "保存为图片"
 
 [xAxis]
 type = "category"
 boundaryGap = false
 data = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday"
+  "周一",
+  "周二",
+  "周三",
+  "周四",
+  "周五",
+  "周六",
+  "周日"
 ]
 
 [yAxis]
 type = "value"
 
 [[series]]
-name = "Email Marketing"
+name = "邮件营销"
 type = "line"
-stack = "Total"
+stack = "总量"
 data = [
   120.0,
   132.0,
@@ -251,9 +251,9 @@ data = [
 ]
 
 [[series]]
-name = "Affiliate Advertising"
+name = "联盟广告"
 type = "line"
-stack = "Total"
+stack = "总量"
 data = [
   220.0,
   182.0,
@@ -265,9 +265,9 @@ data = [
 ]
 
 [[series]]
-name = "Video Advertising"
+name = "视频广告"
 type = "line"
-stack = "Total"
+stack = "总量"
 data = [
   150.0,
   232.0,
@@ -279,9 +279,9 @@ data = [
 ]
 
 [[series]]
-name = "Direct View"
+name = "直接访问"
 type = "line"
-stack = "Total"
+stack = "总量"
 data = [
   320.0,
   332.0,
@@ -293,9 +293,9 @@ data = [
 ]
 
 [[series]]
-name = "Search Engine"
+name = "搜索引擎"
 type = "line"
-stack = "Total"
+stack = "总量"
 data = [
   820.0,
   932.0,
@@ -308,12 +308,12 @@ data = [
 {{</* /echarts */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< echarts >}}
 {
   "title": {
-    "text": "Summary Line Chart",
+    "text": "折线统计图",
     "top": "2%",
     "left": "center"
   },
@@ -321,7 +321,7 @@ The rendered output looks like this:
     "trigger": "axis"
   },
   "legend": {
-    "data": ["Email Marketing", "Affiliate Advertising", "Video Advertising", "Direct View", "Search Engine"],
+    "data": ["邮件营销", "联盟广告", "视频广告", "直接访问", "搜索引擎"],
     "top": "10%"
   },
   "grid": {
@@ -334,60 +334,60 @@ The rendered output looks like this:
   "toolbox": {
     "feature": {
       "saveAsImage": {
-        "title": "Save as Image"
+        "title": "保存为图片"
       }
     }
   },
   "xAxis": {
     "type": "category",
     "boundaryGap": false,
-    "data": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    "data": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
   },
   "yAxis": {
     "type": "value"
   },
   "series": [
     {
-      "name": "Email Marketing",
+      "name": "邮件营销",
       "type": "line",
-      "stack": "Total",
+      "stack": "总量",
       "data": [120, 132, 101, 134, 90, 230, 210]
     },
     {
-      "name": "Affiliate Advertising",
+      "name": "联盟广告",
       "type": "line",
-      "stack": "Total",
+      "stack": "总量",
       "data": [220, 182, 191, 234, 290, 330, 310]
     },
     {
-      "name": "Video Advertising",
+      "name": "视频广告",
       "type": "line",
-      "stack": "Total",
+      "stack": "总量",
       "data": [150, 232, 201, 154, 190, 330, 410]
     },
     {
-      "name": "Direct View",
+      "name": "直接访问",
       "type": "line",
-      "stack": "Total",
+      "stack": "总量",
       "data": [320, 332, 301, 334, 390, 330, 320]
     },
     {
-      "name": "Search Engine",
+      "name": "搜索引擎",
       "type": "line",
-      "stack": "Total",
+      "stack": "总量",
       "data": [820, 932, 901, 934, 1290, 1330, 1320]
     }
   ]
 }
 {{< /echarts >}}
 
-The `echarts` shortcode has also the following named parameters:
+`echarts` shortcode 还有以下命名参数:
 
-* **width** *[optional]* (**first** positional parameter)
+* **width** *[可选]* (**第一个**位置参数)
 
-    {{< version 0.2.0 >}} Width of the data visualization, default value is `100%`.
+    {{< version 0.2.0 >}} 数据可视化的宽度, 默认值是 `100%`.
 
-* **height** *[optional]* (**second** positional parameter)
+* **height** *[可选]* (**第二个**位置参数)
 
-    {{< version 0.2.0 >}} Height of the data visualization, default value is `30rem`.
+    {{< version 0.2.0 >}} 数据可视化的高度, 默认值是 `30rem`.
 

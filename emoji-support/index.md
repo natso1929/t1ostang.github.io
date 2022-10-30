@@ -1,35 +1,36 @@
-# Emoji Support
+# Emoji 支持
 
 
-Emoji can be enabled in a Hugo project in a number of ways.
+Emoji 可以通过多种方式在 Hugo 项目中启用.
 
 <!--more-->
 
-The [`emojify`](https://gohugo.io/functions/emojify/) function can be called directly in templates or [Inline Shortcodes](https://gohugo.io/templates/shortcode-templates#inline-shortcodes).
+[`emojify`](https://gohugo.io/functions/emojify/) 方法可以直接在模板中调用, 或者使用[行内 Shortcodes](https://gohugo.io/templates/shortcode-templates#inline-shortcodes).
 
-To enable emoji globally, set `enableEmoji` to `true` in your [site configuration](https://gohugo.io/getting-started/configuration/) and then you can type emoji shorthand codes directly in content files.
+要全局使用 emoji, 需要在你的[网站配置](https://gohugo.io/getting-started/configuration/)中设置 `enableEmoji` 为 `true`,
+然后你就可以直接在文章中输入 emoji 的代码.
 
-These begin and end with a **colon** and include the **code** of an emoji:
+它们以**冒号**开头和结尾，并且包含 emoji 的 **代码**:
 
 ```markdown
-Gone camping! {?:}tent: Be back soon.
+去露营啦! {?:}tent: 很快就回来.
 
-That is so funny! {?:}joy:
+真开心! {?:}joy:
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
-Gone camping! :tent: Be back soon.
+去露营啦! :tent: 很快就回来.
 
-That is so funny! :joy:
+真开心! :joy:
 
-The following **cheat sheet** is a useful reference for emoji shorthand codes.
+以下**符号清单**是 emoji 代码的非常有用的参考.
 
-## Smileys & Emotion
+## 表情与情感
 
-### Face Smiling
+### 笑脸表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :grinning: | `grinning` | :smiley: | `smiley` |
 | :smile: | `smile` | :grin: | `grin` |
@@ -39,31 +40,31 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :wink: | `wink` | :blush: | `blush` |
 | :innocent: | `innocent` | | |
 
-### Face Affection
+### 爱意表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :heart_eyes: | `heart_eyes` | :kissing_heart: | `kissing_heart` |
 | :kissing: | `kissing` | :relaxed: | `relaxed` |
 | :kissing_closed_eyes: | `kissing_closed_eyes` | :kissing_smiling_eyes: | `kissing_smiling_eyes` |
 
-### Face Tongue
+### 吐舌头表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :yum: | `yum` | :stuck_out_tongue: | `stuck_out_tongue` |
 | :stuck_out_tongue_winking_eye: | `stuck_out_tongue_winking_eye` | :stuck_out_tongue_closed_eyes: | `stuck_out_tongue_closed_eyes` |
 | :money_mouth_face: | `money_mouth_face` | | |
 
-### Face Hand
+### 带手的表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :hugs: | `hugs` | :thinking: | `thinking` |
 
-### Face Neutral Skeptical
+### 中性表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :zipper_mouth_face: | `zipper_mouth_face` | :neutral_face: | `neutral_face` |
 | :expressionless: | `expressionless` | :no_mouth: | `no_mouth` |
@@ -71,37 +72,37 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :roll_eyes: | `roll_eyes` | :grimacing: | `grimacing` |
 | :lying_face: | `lying_face` | | |
 
-### Face Sleepy
+### 困倦的表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :relieved: | `relieved` | :pensive: | `pensive` |
 | :sleepy: | `sleepy` | :drooling_face: | `drooling_face` |
 | :sleeping: | `sleeping` | | |
 
-### Face Unwell
+### 不适的表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :mask: | `mask` | :face_with_thermometer: | `face_with_thermometer` |
 | :face_with_head_bandage: | `face_with_head_bandage` | :nauseated_face: | `nauseated_face` |
 | :sneezing_face: | `sneezing_face` | :dizzy_face: | `dizzy_face` |
 
-### Face Hat
+### 戴帽子的表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :cowboy_hat_face: | `cowboy_hat_face` | | |
 
-### Face Glasses
+### 戴眼镜的表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :sunglasses: | `sunglasses` | :nerd_face: | `nerd_face` |
 
-### Face Concerned
+### 担心的表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :confused: | `confused` | :worried: | `worried` |
 | :slightly_frowning_face: | `slightly_frowning_face` | :frowning_face: | `frowning_face` |
@@ -115,27 +116,27 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :disappointed: | `disappointed` | :sweat: | `sweat` |
 | :weary: | `weary` | :tired_face: | `tired_face` |
 
-### Face Negative
+### 否定的表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :triumph: | `triumph` | :pout: | `pout` <br /> `rage` |
 | :angry: | `angry` | :smiling_imp: | `smiling_imp` |
 | :imp: | `imp` | :skull: | `skull` |
 | :skull_and_crossbones: | `skull_and_crossbones` | | |
 
-### Face Costume
+### 特殊打扮的表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :hankey: | `hankey` <br /> `poop` <br /> `shit` | :clown_face: | `clown_face` |
 | :japanese_ogre: | `japanese_ogre` | :japanese_goblin: | `japanese_goblin` |
 | :ghost: | `ghost` | :alien: | `alien` |
 | :space_invader: | `space_invader` | :robot: | `robot` |
 
-### Cat Face
+### 猫脸表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :smiley_cat: | `smiley_cat` | :smile_cat: | `smile_cat` |
 | :joy_cat: | `joy_cat` | :heart_eyes_cat: | `heart_eyes_cat` |
@@ -143,16 +144,16 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :scream_cat: | `scream_cat` | :crying_cat_face: | `crying_cat_face` |
 | :pouting_cat: | `pouting_cat` | | |
 
-### Monkey Face
+### 猴脸表情
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :see_no_evil: | `see_no_evil` | :hear_no_evil: | `hear_no_evil` |
 | :speak_no_evil: | `speak_no_evil` | | |
 
-### Emotion
+### 情感
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :kiss: | `kiss` | :love_letter: | `love_letter` |
 | :cupid: | `cupid` | :gift_heart: | `gift_heart` |
@@ -171,67 +172,67 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :right_anger_bubble: | `right_anger_bubble` | :thought_balloon: | `thought_balloon` |
 | :zzz: | `zzz` | | |
 
-## People & Body
+## 人与身体
 
-### Hand Fingers Open
+### 张开手掌的手势
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :wave: | `wave` | :raised_back_of_hand: | `raised_back_of_hand` |
 | :raised_hand_with_fingers_splayed: | `raised_hand_with_fingers_splayed` | :hand: | `hand` <br /> `raised_hand` |
 | :vulcan_salute: | `vulcan_salute` | | |
 
-### Hand Fingers Partial
+### 部分手指的手势
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :ok_hand: | `ok_hand` | :v: | `v` |
 | :crossed_fingers: | `crossed_fingers` | :metal: | `metal` |
 | :call_me_hand: | `call_me_hand` | | |
 
-### Hand Single Finger
+### 一根手指的手势
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :point_left: | `point_left` | :point_right: | `point_right` |
 | :point_up_2: | `point_up_2` | :fu: | `fu` <br /> `middle_finger` |
 | :point_down: | `point_down` | :point_up: | `point_up` |
 
-### Hand Fingers Closed
+### 握紧的手势
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :+1: | `+1` <br /> `thumbsup` | :-1: | `-1` <br /> `thumbsdown` |
 | :fist: | `fist` <br /> `fist_raised` | :facepunch: | `facepunch` <br /> `fist_oncoming` <br /> `punch` |
 | :fist_left: | `fist_left` | :fist_right: | `fist_right` |
 
-### Hands
+### 两只手
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :clap: | `clap` | :raised_hands: | `raised_hands` |
 | :open_hands: | `open_hands` | :handshake: | `handshake` |
 | :pray: | `pray` | | |
 
-### Hand Prop
+### 握住东西的手势
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :writing_hand: | `writing_hand` | :nail_care: | `nail_care` |
 | :selfie: | `selfie` | | |
 
-### Body Parts
+### 身体部位
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :muscle: | `muscle` | :ear: | `ear` |
 | :nose: | `nose` | :eyes: | `eyes` |
 | :eye: | `eye` | :tongue: | `tongue` |
 | :lips: | `lips` | | |
 
-### Person
+### 人
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :baby: | `baby` | :boy: | `boy` |
 | :girl: | `girl` | :blonde_man: | `blonde_man` <br /> `person_with_blond_hair` |
@@ -239,9 +240,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :blonde_woman: | `blonde_woman` | :older_man: | `older_man` |
 | :older_woman: | `older_woman` | | |
 
-### Person Gesture
+### 身体动作
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :frowning_woman: | `frowning_woman` <br /> `person_frowning` | :frowning_man: | `frowning_man` |
 | :person_with_pouting_face: | `person_with_pouting_face` <br /> `pouting_woman` | :pouting_man: | `pouting_man` |
@@ -253,9 +254,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :man_facepalming: | `man_facepalming` | :woman_facepalming: | `woman_facepalming` |
 | :man_shrugging: | `man_shrugging` | :woman_shrugging: | `woman_shrugging` |
 
-### Person Role
+### 人物角色
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :man_health_worker: | `man_health_worker` | :woman_health_worker: | `woman_health_worker` |
 | :man_student: | `man_student` | :woman_student: | `woman_student` |
@@ -282,16 +283,16 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :man_with_gua_pi_mao: | `man_with_gua_pi_mao` | :man_in_tuxedo: | `man_in_tuxedo` |
 | :bride_with_veil: | `bride_with_veil` | :pregnant_woman: | `pregnant_woman` |
 
-### Person Fantasy
+### 幻想的人物
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :angel: | `angel` | :santa: | `santa` |
 | :mrs_claus: | `mrs_claus` | | |
 
-### Person Activity
+### 人物活动
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :massage: | `massage` <br /> `massage_woman` | :massage_man: | `massage_man` |
 | :haircut: | `haircut` <br /> `haircut_woman` | :haircut_man: | `haircut_man` |
@@ -301,9 +302,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :business_suit_levitating: | `business_suit_levitating` | :dancers: | `dancers` <br /> `dancing_women` |
 | :dancing_men: | `dancing_men` | | |
 
-### Person Sport
+### 体育
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :person_fencing: | `person_fencing` | :horse_racing: | `horse_racing` |
 | :skier: | `skier` | :snowboarder: | `snowboarder` |
@@ -321,15 +322,15 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :man_playing_handball: | `man_playing_handball` | :woman_playing_handball: | `woman_playing_handball` |
 | :man_juggling: | `man_juggling` | :woman_juggling: | `woman_juggling` |
 
-### Person Resting
+### 休息
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :bath: | `bath` | :sleeping_bed: | `sleeping_bed` |
 
-### Family
+### 家庭
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :two_women_holding_hands: | `two_women_holding_hands` | :couple: | `couple` |
 | :two_men_holding_hands: | `two_men_holding_hands` | :couplekiss_man_woman: | `couplekiss_man_woman` |
@@ -349,18 +350,18 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :family_woman_boy_boy: | `family_woman_boy_boy` | :family_woman_girl: | `family_woman_girl` |
 | :family_woman_girl_boy: | `family_woman_girl_boy` | :family_woman_girl_girl: | `family_woman_girl_girl` |
 
-### Person Symbol
+### 人物符号
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :speaking_head: | `speaking_head` | :bust_in_silhouette: | `bust_in_silhouette` |
 | :busts_in_silhouette: | `busts_in_silhouette` | :footprints: | `footprints` |
 
-## Animals & Nature
+## 动物与自然
 
-### Animal Mammal
+### 哺乳动物
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :monkey_face: | `monkey_face` | :monkey: | `monkey` |
 | :gorilla: | `gorilla` | :dog: | `dog` |
@@ -386,9 +387,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :koala: | `koala` | :panda_face: | `panda_face` |
 | :feet: | `feet` <br /> `paw_prints` | | |
 
-### Animal Bird
+### 鸟类
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :turkey: | `turkey` | :chicken: | `chicken` |
 | :rooster: | `rooster` | :hatching_chick: | `hatching_chick` |
@@ -397,23 +398,23 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :dove: | `dove` | :eagle: | `eagle` |
 | :duck: | `duck` | :owl: | `owl` |
 
-### Animal Amphibian
+### 两栖动物
 
 | icon | code | icon | code |
 | :-: | - | :-: | - |
 | :frog: | `frog` |
 
-### Animal Reptile
+### 爬虫类
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :crocodile: | `crocodile` | :turtle: | `turtle` |
 | :lizard: | `lizard` | :snake: | `snake` |
 | :dragon_face: | `dragon_face` | :dragon: | `dragon` |
 
-### Animal Marine
+### 海洋动物
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :whale: | `whale` | :whale2: | `whale2` |
 | :dolphin: | `dolphin` <br /> `flipper` | :fish: | `fish` |
@@ -421,9 +422,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :shark: | `shark` | :octopus: | `octopus` |
 | :shell: | `shell` | | |
 
-### Animal Bug
+### 虫类
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :snail: | `snail` | :butterfly: | `butterfly` |
 | :bug: | `bug` | :ant: | `ant` |
@@ -431,9 +432,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :spider: | `spider` | :spider_web: | `spider_web` |
 | :scorpion: | `scorpion` | | |
 
-### Plant Flower
+### 花类植物
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :bouquet: | `bouquet` | :cherry_blossom: | `cherry_blossom` |
 | :white_flower: | `white_flower` | :rosette: | `rosette` |
@@ -441,9 +442,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :hibiscus: | `hibiscus` | :sunflower: | `sunflower` |
 | :blossom: | `blossom` | :tulip: | `tulip` |
 
-### Plant Other
+### 其它植物
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :seedling: | `seedling` | :evergreen_tree: | `evergreen_tree` |
 | :deciduous_tree: | `deciduous_tree` | :palm_tree: | `palm_tree` |
@@ -452,11 +453,11 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :four_leaf_clover: | `four_leaf_clover` | :maple_leaf: | `maple_leaf` |
 | :fallen_leaf: | `fallen_leaf` | :leaves: | `leaves` |
 
-## Food & Drink
+## 食物与饮料
 
-### Food Fruit
+### 水果
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :grapes: | `grapes` | :melon: | `melon` |
 | :watermelon: | `watermelon` | :mandarin: | `mandarin` <br /> `orange` <br /> `tangerine` |
@@ -467,9 +468,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :strawberry: | `strawberry` | :kiwi_fruit: | `kiwi_fruit` |
 | :tomato: | `tomato` | | |
 
-### Food Vegetable
+### 蔬菜
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :avocado: | `avocado` | :eggplant: | `eggplant` |
 | :potato: | `potato` | :carrot: | `carrot` |
@@ -477,9 +478,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :cucumber: | `cucumber` | :mushroom: | `mushroom` |
 | :peanuts: | `peanuts` | :chestnut: | `chestnut` |
 
-### Food Prepared
+### 快餐
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :bread: | `bread` | :croissant: | `croissant` |
 | :baguette_bread: | `baguette_bread` | :pancakes: | `pancakes` |
@@ -493,9 +494,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :stew: | `stew` | :green_salad: | `green_salad` |
 | :popcorn: | `popcorn` | | |
 
-### Food Asian
+### 亚洲食物
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :bento: | `bento` | :rice_cracker: | `rice_cracker` |
 | :rice_ball: | `rice_ball` | :rice: | `rice` |
@@ -505,16 +506,16 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :fried_shrimp: | `fried_shrimp` | :fish_cake: | `fish_cake` |
 | :dango: | `dango` | | |
 
-### Food Marine
+### 海鲜
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :crab: | `crab` | :shrimp: | `shrimp` |
 | :squid: | `squid` | | |
 
-### Food Sweet
+### 甜点
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :icecream: | `icecream` | :shaved_ice: | `shaved_ice` |
 | :ice_cream: | `ice_cream` | :doughnut: | `doughnut` |
@@ -523,9 +524,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :candy: | `candy` | :lollipop: | `lollipop` |
 | :custard: | `custard` | :honey_pot: | `honey_pot` |
 
-### Drink
+### 饮料
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :baby_bottle: | `baby_bottle` | :milk_glass: | `milk_glass` |
 | :coffee: | `coffee` | :tea: | `tea` |
@@ -535,27 +536,27 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :beers: | `beers` | :clinking_glasses: | `clinking_glasses` |
 | :tumbler_glass: | `tumbler_glass` | | |
 
-### Dishware
+### 餐具
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :plate_with_cutlery: | `plate_with_cutlery` | :fork_and_knife: | `fork_and_knife` |
 | :spoon: | `spoon` | :hocho: | `hocho` <br /> `knife` |
 | :amphora: | `amphora` | | |
 
-## Travel & Places
+## 旅游与地理
 
-### Place Map
+### 地图
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :earth_africa: | `earth_africa` | :earth_americas: | `earth_americas` |
 | :earth_asia: | `earth_asia` | :globe_with_meridians: | `globe_with_meridians` |
 | :world_map: | `world_map` | :japan: | `japan` |
 
-### Place Geographic
+### 地理现象
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :mountain_snow: | `mountain_snow` | :mountain: | `mountain` |
 | :volcano: | `volcano` | :mount_fuji: | `mount_fuji` |
@@ -563,9 +564,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :desert: | `desert` | :desert_island: | `desert_island` |
 | :national_park: | `national_park` | | |
 
-### Place Building
+### 建筑物
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :stadium: | `stadium` | :classical_building: | `classical_building` |
 | :building_construction: | `building_construction` | :houses: | `houses` |
@@ -580,17 +581,17 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :wedding: | `wedding` | :tokyo_tower: | `tokyo_tower` |
 | :statue_of_liberty: | `statue_of_liberty` | | |
 
-### Place Religious
+### 宗教建筑
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :church: | `church` | :mosque: | `mosque` |
 | :synagogue: | `synagogue` | :shinto_shrine: | `shinto_shrine` |
 | :kaaba: | `kaaba` | | |
 
-### Place Other
+### 其它地点
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :fountain: | `fountain` | :tent: | `tent` |
 | :foggy: | `foggy` | :night_with_stars: | `night_with_stars` |
@@ -601,9 +602,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :ferris_wheel: | `ferris_wheel` | :roller_coaster: | `roller_coaster` |
 | :barber: | `barber` | :circus_tent: | `circus_tent` |
 
-### Transport Ground
+### 陆路运输
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :steam_locomotive: | `steam_locomotive` | :railway_car: | `railway_car` |
 | :bullettrain_side: | `bullettrain_side` | :bullettrain_front: | `bullettrain_front` |
@@ -628,18 +629,18 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :vertical_traffic_light: | `vertical_traffic_light` | :stop_sign: | `stop_sign` |
 | :construction: | `construction` | | |
 
-### Transport Water
+### 水路运输
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :anchor: | `anchor` | :boat: | `boat` <br /> `sailboat` |
 | :canoe: | `canoe` | :speedboat: | `speedboat` |
 | :passenger_ship: | `passenger_ship` | :ferry: | `ferry` |
 | :motor_boat: | `motor_boat` | :ship: | `ship` |
 
-### Transport Air
+### 空中运输
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :airplane: | `airplane` | :small_airplane: | `small_airplane` |
 | :flight_departure: | `flight_departure` | :flight_arrival: | `flight_arrival` |
@@ -648,15 +649,15 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :aerial_tramway: | `aerial_tramway` | :artificial_satellite: | `artificial_satellite` |
 | :rocket: | `rocket` | | |
 
-### Hotel
+### 旅馆
 
 | icon | code | icon | code |
 | :-: | - | :-: | - |
 | :bellhop_bell: | `bellhop_bell` |
 
-### Time
+### 时间
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :hourglass: | `hourglass` | :hourglass_flowing_sand: | `hourglass_flowing_sand` |
 | :watch: | `watch` | :alarm_clock: | `alarm_clock` |
@@ -675,9 +676,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :clock1030: | `clock1030` | :clock11: | `clock11` |
 | :clock1130: | `clock1130` | | |
 
-### Sky & Weather
+### 天空与天气
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :new_moon: | `new_moon` | :waxing_crescent_moon: | `waxing_crescent_moon` |
 | :first_quarter_moon: | `first_quarter_moon` | :moon: | `moon` <br /> `waxing_gibbous_moon` |
@@ -703,11 +704,11 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :comet: | `comet` | :fire: | `fire` |
 | :droplet: | `droplet` | :ocean: | `ocean` |
 
-## Activities
+## 活动
 
-### Event
+### 事件
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :jack_o_lantern: | `jack_o_lantern` | :christmas_tree: | `christmas_tree` |
 | :fireworks: | `fireworks` | :sparkler: | `sparkler` |
@@ -720,17 +721,17 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :reminder_ribbon: | `reminder_ribbon` | :tickets: | `tickets` |
 | :ticket: | `ticket` | | |
 
-### Award Medal
+### 奖杯与奖牌
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :medal_military: | `medal_military` | :trophy: | `trophy` |
 | :medal_sports: | `medal_sports` | :1st_place_medal: | `1st_place_medal` |
 | :2nd_place_medal: | `2nd_place_medal` | :3rd_place_medal: | `3rd_place_medal` |
 
-### Sport
+### 体育运动
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :soccer: | `soccer` | :baseball: | `baseball` |
 | :basketball: | `basketball` | :volleyball: | `volleyball` |
@@ -744,9 +745,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :fishing_pole_and_fish: | `fishing_pole_and_fish` | :running_shirt_with_sash: | `running_shirt_with_sash` |
 | :ski: | `ski` | | |
 
-### Game
+### 游戏
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :dart: | `dart` | :8ball: | `8ball` |
 | :crystal_ball: | `crystal_ball` | :video_game: | `video_game` |
@@ -756,18 +757,18 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :clubs: | `clubs` | :black_joker: | `black_joker` |
 | :mahjong: | `mahjong` | :flower_playing_cards: | `flower_playing_cards` |
 
-### Arts & Crafts
+### 艺术与工艺
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :performing_arts: | `performing_arts` | :framed_picture: | `framed_picture` |
 | :art: | `art` | | |
 
-## Objects
+## 物品
 
-### Clothing
+### 服装
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :eyeglasses: | `eyeglasses` | :dark_sunglasses: | `dark_sunglasses` |
 | :necktie: | `necktie` | :shirt: | `shirt` <br /> `tshirt` |
@@ -784,9 +785,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :prayer_beads: | `prayer_beads` | :lipstick: | `lipstick` |
 | :ring: | `ring` | :gem: | `gem` |
 
-### Sound
+### 声音
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :mute: | `mute` | :speaker: | `speaker` |
 | :sound: | `sound` | :loud_sound: | `loud_sound` |
@@ -794,9 +795,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :postal_horn: | `postal_horn` | :bell: | `bell` |
 | :no_bell: | `no_bell` | | |
 
-### Music
+### 音乐
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :musical_score: | `musical_score` | :musical_note: | `musical_note` |
 | :notes: | `notes` | :studio_microphone: | `studio_microphone` |
@@ -804,25 +805,25 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :microphone: | `microphone` | :headphones: | `headphones` |
 | :radio: | `radio` | | |
 
-### Musical Instrument
+### 乐器
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :saxophone: | `saxophone` | :guitar: | `guitar` |
 | :musical_keyboard: | `musical_keyboard` | :trumpet: | `trumpet` |
 | :violin: | `violin` | :drum: | `drum` |
 
-### Phone
+### 电话
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :iphone: | `iphone` | :calling: | `calling` |
 | :phone: | `phone` <br /> `telephone` | :telephone_receiver: | `telephone_receiver` |
 | :pager: | `pager` | :fax: | `fax` |
 
-### Computer
+### 电脑
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :battery: | `battery` | :electric_plug: | `electric_plug` |
 | :computer: | `computer` | :desktop_computer: | `desktop_computer` |
@@ -831,9 +832,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :minidisc: | `minidisc` | :floppy_disk: | `floppy_disk` |
 | :cd: | `cd` | :dvd: | `dvd` |
 
-### Light & Video
+### 灯光与影像
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :movie_camera: | `movie_camera` | :film_strip: | `film_strip` |
 | :film_projector: | `film_projector` | :clapper: | `clapper` |
@@ -844,9 +845,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :bulb: | `bulb` | :flashlight: | `flashlight` |
 | :izakaya_lantern: | `izakaya_lantern` <br /> `lantern` | | |
 
-### Book Paper
+### 书与纸张
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :notebook_with_decorative_cover: | `notebook_with_decorative_cover` | :closed_book: | `closed_book` |
 | :book: | `book` <br /> `open_book` | :green_book: | `green_book` |
@@ -858,18 +859,18 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :bookmark_tabs: | `bookmark_tabs` | :bookmark: | `bookmark` |
 | :label: | `label` | | |
 
-### Money
+### 钱
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :moneybag: | `moneybag` | :yen: | `yen` |
 | :dollar: | `dollar` | :euro: | `euro` |
 | :pound: | `pound` | :money_with_wings: | `money_with_wings` |
 | :credit_card: | `credit_card` | :chart: | `chart` |
 
-### Mail
+### 邮件
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :email: | `email` <br /> `envelope` | :e-mail: | `:e-mail:` |
 | :incoming_envelope: | `incoming_envelope` | :envelope_with_arrow: | `envelope_with_arrow` |
@@ -879,18 +880,18 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :mailbox_with_no_mail: | `mailbox_with_no_mail` | :postbox: | `postbox` |
 | :ballot_box: | `ballot_box` | | |
 
-### Writing
+### 书写
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :pencil2: | `pencil2` | :black_nib: | `black_nib` |
 | :fountain_pen: | `fountain_pen` | :pen: | `pen` |
 | :paintbrush: | `paintbrush` | :crayon: | `crayon` |
 | :memo: | `memo` <br /> `pencil` | | |
 
-### Office
+### 办公
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :briefcase: | `briefcase` | :file_folder: | `file_folder` |
 | :open_file_folder: | `open_file_folder` | :card_index_dividers: | `card_index_dividers` |
@@ -905,17 +906,17 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :card_file_box: | `card_file_box` | :file_cabinet: | `file_cabinet` |
 | :wastebasket: | `wastebasket` | | |
 
-### Lock
+### 锁
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :lock: | `lock` | :unlock: | `unlock` |
 | :lock_with_ink_pen: | `lock_with_ink_pen` | :closed_lock_with_key: | `closed_lock_with_key` |
 | :key: | `key` | :old_key: | `old_key` |
 
-### Tool
+### 工具
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :hammer: | `hammer` | :pick: | `pick` |
 | :hammer_and_pick: | `hammer_and_pick` | :hammer_and_wrench: | `hammer_and_wrench` |
@@ -926,40 +927,40 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :clamp: | `clamp` | :balance_scale: | `balance_scale` |
 | :link: | `link` | :chains: | `chains` |
 
-### Science
+### 科学
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :alembic: | `alembic` | :microscope: | `microscope` |
 | :telescope: | `telescope` | :satellite: | `satellite` |
 
-### Medical
+### 医疗
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :syringe: | `syringe` | :pill: | `pill` |
 
-### Household
+### 生活用品
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :door: | `door` | :bed: | `bed` |
 | :couch_and_lamp: | `couch_and_lamp` | :toilet: | `toilet` |
 | :shower: | `shower` | :bathtub: | `bathtub` |
 | :shopping_cart: | `shopping_cart` | | |
 
-### Other Object
+### 其它物品
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :smoking: | `smoking` | :coffin: | `coffin` |
 | :funeral_urn: | `funeral_urn` | :moyai: | `moyai` |
 
-## Symbols
+## 符号
 
-### Transport Sign
+### 交通标识
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :atm: | `atm` | :put_litter_in_its_place: | `put_litter_in_its_place` |
 | :potable_water: | `potable_water` | :wheelchair: | `wheelchair` |
@@ -969,9 +970,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :customs: | `customs` | :baggage_claim: | `baggage_claim` |
 | :left_luggage: | `left_luggage` | | |
 
-### Warning
+### 警告
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :warning: | `warning` | :children_crossing: | `children_crossing` |
 | :no_entry: | `no_entry` | :no_entry_sign: | `no_entry_sign` |
@@ -981,9 +982,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :underage: | `underage` | :radioactive: | `radioactive` |
 | :biohazard: | `biohazard` | | |
 
-### Arrow
+### 箭头
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :arrow_up: | `arrow_up` | :arrow_upper_right: | `arrow_upper_right` |
 | :arrow_right: | `arrow_right` | :arrow_lower_right: | `arrow_lower_right` |
@@ -997,9 +998,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :on: | `on` | :soon: | `soon` |
 | :top: | `top` | | |
 
-### Religion
+### 宗教
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :place_of_worship: | `place_of_worship` | :atom_symbol: | `atom_symbol` |
 | :om: | `om` | :star_of_david: | `star_of_david` |
@@ -1008,9 +1009,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :star_and_crescent: | `star_and_crescent` | :peace_symbol: | `peace_symbol` |
 | :menorah: | `menorah` | :six_pointed_star: | `six_pointed_star` |
 
-### Zodiac
+### 生肖
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :aries: | `aries` | :taurus: | `taurus` |
 | :gemini: | `gemini` | :cancer: | `cancer` |
@@ -1020,9 +1021,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :aquarius: | `aquarius` | :pisces: | `pisces` |
 | :ophiuchus: | `ophiuchus` | | |
 
-### Av Symbol
+### 影像符号
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :twisted_rightwards_arrows: | `twisted_rightwards_arrows` | :repeat: | `repeat` |
 | :repeat_one: | `repeat_one` | :arrow_forward: | `arrow_forward` |
@@ -1037,31 +1038,31 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :signal_strength: | `signal_strength` | :vibration_mode: | `vibration_mode` |
 | :mobile_phone_off: | `mobile_phone_off` | | |
 
-### Math
+### 数学
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :heavy_multiplication_x: | `heavy_multiplication_x` | :heavy_plus_sign: | `heavy_plus_sign` |
 | :heavy_minus_sign: | `heavy_minus_sign` | :heavy_division_sign: | `heavy_division_sign` |
 
-### Punctuation
+### 标点符号
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :bangbang: | `bangbang` | :interrobang: | `interrobang` |
 | :question: | `question` | :grey_question: | `grey_question` |
 | :grey_exclamation: | `grey_exclamation` | :exclamation: | `exclamation` <br /> `heavy_exclamation_mark` |
 | :wavy_dash: | `wavy_dash` | | |
 
-### Currency
+### 货币
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :currency_exchange: | `currency_exchange` | :heavy_dollar_sign: | `heavy_dollar_sign` |
 
-### Keycap
+### 按键符号
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :hash: | `hash` | :asterisk: | `asterisk` |
 | :zero: | `zero` | :one: | `one` |
@@ -1071,9 +1072,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :eight: | `eight` | :nine: | `nine` |
 | :keycap_ten: | `keycap_ten` | | |
 
-### Alphabet
+### 字母符号
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :capital_abcd: | `capital_abcd` | :abcd: | `abcd` |
 | :1234: | `1234` | :symbols: | `symbols` |
@@ -1096,9 +1097,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :secret: | `secret` | :u55b6: | `u55b6` |
 | :u6e80: | `u6e80` | | |
 
-### Geometric
+### 几何符号
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :red_circle: | `red_circle` | :large_blue_circle: | `large_blue_circle` |
 | :black_circle: | `black_circle` | :white_circle: | `white_circle` |
@@ -1112,9 +1113,9 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :diamond_shape_with_a_dot_inside: | `diamond_shape_with_a_dot_inside` | :radio_button: | `radio_button` |
 | :white_square_button: | `white_square_button` | :black_square_button: | `black_square_button` |
 
-### Other Symbol
+### 其它符合
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :recycle: | `recycle` | :fleur_de_lis: | `fleur_de_lis` |
 | :trident: | `trident` | :name_badge: | `name_badge` |
@@ -1127,19 +1128,19 @@ The following **cheat sheet** is a useful reference for emoji shorthand codes.
 | :sparkle: | `sparkle` | :copyright: | `copyright` |
 | :registered: | `registered` | :tm: | `tm` |
 
-## Flags
+## 旗帜
 
-### Common Flags
+### 常用旗帜
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :checkered_flag: | `checkered_flag` | :triangular_flag_on_post: | `triangular_flag_on_post` |
 | :crossed_flags: | `crossed_flags` | :black_flag: | `black_flag` |
 | :white_flag: | `white_flag` | :rainbow_flag: | `rainbow_flag` |
 
-### Country and Region Flags
+### 国家和地区旗帜
 
-| icon | code | icon | code |
+| 图标 | 代码 | 图标 | 代码 |
 | :-: | - | :-: | - |
 | :andorra: | `andorra` | :united_arab_emirates: | `united_arab_emirates` |
 | :afghanistan: | `afghanistan` | :antigua_barbuda: | `antigua_barbuda` |

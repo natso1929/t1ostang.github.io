@@ -1,144 +1,143 @@
-# Theme Documentation - music Shortcode
+# 主题文档 - music Shortcode
 
 
-The `music` shortcode embeds a responsive music player based on [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS).
+`music` shortcode 基于 [APlayer](https://github.com/MoePlayer/APlayer) 和 [MetingJS](https://github.com/metowolf/MetingJS) 库提供了一个内嵌的响应式音乐播放器.
 
 <!--more-->
 
-There are three ways to use it the `music` shortcode.
+有三种方式使用 `music` shortcode.
 
-## 1 Custom Music URL {#custom-music-url}
+## 1 自定义音乐 URL {#custom-music-url}
 
-{{< version 0.2.10 >}} The complete usage of [local resource references](../theme-documentation-content#contents-organization) is supported.
+{{< version 0.2.10 >}} 支持[本地资源引用](../theme-documentation-content#contents-organization)的完整用法.
 
-The `music` shortcode has the following named parameters by custom music URL:
+`music` shortcode 有以下命名参数来使用自定义音乐 URL:
 
-* **server** *[required]*
+* **server** *[必需]*
 
-    URL of the custom music.
+    音乐的链接.
 
-* **name** *[optional]*
+* **type** *[可选]*
 
-    Name of the custom music.
+    音乐的名称.
 
-* **artist** *[optional]*
+* **artist** *[可选]*
 
-    Artist of the custom music.
+    音乐的创作者.
 
-* **cover** *[required]*
+* **cover** *[可选]*
 
-    URL of the custom music cover.
+    音乐的封面链接.
 
-Example `music` input by custom music URL:
+一个使用自定义音乐 URL 的 `music` 示例:
 
 ```markdown
 {{</* music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.jpg" */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.jpg" >}}
 
-## 2 Music Platform URL Automatic Identification {#automatic-identification}
+## 2 音乐平台 URL 的自动识别 {#automatic-identification}
 
-The `music` shortcode has one named parameter by music platform URL automatic identification:
+`music` shortcode 有一个命名参数来使用音乐平台 URL 的自动识别:
 
-* **auto** *[required]* (**first** positional parameter)
+* **auto** *[必需]]* (**第一个**位置参数)
 
-    URL of the music platform URL for automatic identification,
-    which supports `netease`, `tencent` and `xiami` music platform.
+    用来自动识别的音乐平台 URL, 支持 `netease`, `tencent` 和 `xiami` 平台.
 
-Example `music` input by music platform URL automatic identification:
+一个使用音乐平台 URL 的自动识别的 `music` 示例:
 
 ```markdown
 {{</* music auto="https://music.163.com/#/playlist?id=60198" */>}}
-Or
+或者
 {{</* music "https://music.163.com/#/playlist?id=60198" */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< music auto="https://music.163.com/#/playlist?id=60198" >}}
 
-## 3 Custom Server, Type and ID {#custom-server}
+## 3 自定义音乐平台, 类型和 ID {#custom-server}
 
-The `music` shortcode has the following named parameters by custom music platform:
+`music` shortcode 有以下命名参数来使用自定义音乐平台:
 
-* **server** *[required]* (**first** positional parameter)
+* **server** *[必需]* (**第一个**位置参数)
 
     [`netease`, `tencent`, `kugou`, `xiami`, `baidu`]
 
-    Music platform.
+    音乐平台.
 
-* **type** *[required]* (**second** positional parameter)
+* **type** *[必需]* (**第二个**位置参数)
 
     [`song`, `playlist`, `album`, `search`, `artist`]
 
-    Type of the music.
+    音乐类型.
 
-* **id** *[required]* (**third** positional parameter)
+* **id** *[必需]* (**第三个**位置参数)
 
-    Song ID, or playlist ID, or album ID, or search keyword, or artist ID.
+    歌曲 ID, 或者播放列表 ID, 或者专辑 ID, 或者搜索关键词, 或者创作者 ID.
 
-Example `music` input by custom music platform:
+一个使用自定义音乐平台的 `music` 示例:
 
 ```markdown
 {{</* music server="netease" type="song" id="1868553" */>}}
-Or
+或者
 {{</* music netease song 1868553 */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< music netease song 1868553 >}}
 
-## 4 Other Parameters {#other-parameters}
+## 4 其它参数 {#other-parameters}
 
-The `music` shortcode has other named parameters applying to the above three ways:
+`music` shortcode 有一些可以应用于以上三种方式的其它命名参数:
 
-* **theme** *[optional]*
+* **theme** *[可选]*
 
-    {{< version 0.2.0 changed >}} Main color of the music player, default value is `#448aff`.
+    {{< version 0.2.0 changed >}} 音乐播放器的主题色, 默认值是 `#448aff`.
 
-* **fixed** *[optional]*
+* **fixed** *[可选]*
 
-    Whether to enable fixed mode, default value is `false`.
+    是否开启固定模式, 默认值是 `false`.
 
-* **mini** *[optional]*
+* **mini** *[可选]*
 
-    Whether to enable mini mode, default value is `false`.
+    是否开启迷你模式, 默认值是 `false`.
 
-* **autoplay** *[optional]*
+* **autoplay** *[可选]*
 
-    Whether to autoplay music, default value is `false`.
+    是否自动播放音乐, 默认值是 `false`.
 
-* **volume** *[optional]*
+* **volume** *[可选]*
 
-    Default volume when the player is first opened, which will be remembered in the browser, default value is `0.7`.
+    第一次打开播放器时的默认音量, 会被保存在浏览器缓存中, 默认值是 `0.7`.
 
-* **mutex** *[optional]*
+* **mutex** *[可选]*
 
-    Whether to pause other players when this player starts playing, default value is `true`.
+    是否自动暂停其它播放器, 默认值是 `true`.
 
-The `music` shortcode has the following named parameters only applying to the type of music list:
+`music` shortcode 还有一些只适用于音乐列表方式的其它命名参数:
 
-* **loop** *[optional]*
+* **loop** *[可选]*
 
     [`all`, `one`, `none`]
 
-    Loop mode of the music list, default value is `none`.
+    音乐列表的循环模式, 默认值是 `none`.
 
-* **order** *[optional]*
+* **order** *[可选]*
 
     [`list`, `random`]
 
-    Play order of the music list, default value is `list`.
+    音乐列表的播放顺序, 默认值是 `list`.
 
-* **list-folded** *[optional]*
+* **list-folded** *[可选]*
 
-    Whether the music list should be folded at first, default value is `false`.
+    初次打开的时候音乐列表是否折叠, 默认值是 `false`.
 
-* **list-max-height** *[optional]*
+* **list-max-height** *[可选]*
 
-    Max height of the music list, default value is `340px`.
+    音乐列表的最大高度, 默认值是 `340px`.
 

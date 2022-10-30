@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>6.828 Lab 1: Booting a PC - tiolog</title><meta name="Description" content="6.828 lab1 总结"><meta property="og:title" content="6.828 Lab 1: Booting a PC" />
+<meta property="og:description" content="6.828 lab1 总结" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/lab1/" /><meta property="og:image" content="http://example.org/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-23T20:31:36+08:00" />
+<meta property="article:modified_time" content="2022-10-30T17:42:20+08:00" /><meta property="og:site_name" content="LoveIt" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.png"/>
+
+<meta name="twitter:title" content="6.828 Lab 1: Booting a PC"/>
+<meta name="twitter:description" content="6.828 lab1 总结"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/lab1/" /><link rel="next" href="http://example.org/theme-documentation-typeit-shortcode/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "6.828 Lab 1: Booting a PC",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/lab1\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "MIT6.828","wordcount":  3458 ,
+        "url": "http:\/\/example.org\/lab1\/","datePublished": "2022-10-23T20:31:36+08:00","dateModified": "2022-10-30T17:42:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  300 ,
+                    "height":  300 
+                }},"author": {
+                "@type": "Person",
+                "name": "tio"
+            },"description": "6.828 lab1 总结"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="tiolog">tiolog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="tiolog">tiolog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">6.828 Lab 1: Booting a PC</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>tio</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>操作系统</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-23">2022-10-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3458 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/lab1/" class="leancloud_visitors" data-flag-title="6.828 Lab 1: Booting a PC">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-introduction">0 Introduction</a>
+      <ul>
+        <li><a href="#software-setup">Software Setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-1-pc-bootstrap">Part 1: PC Bootstrap</a>
+      <ul>
+        <li><a href="#11-getting-started-with-x86-assembly">1.1 Getting Started with x86 assembly</a></li>
+        <li><a href="#12-simulating-the-x86">1.2 Simulating the x86</a></li>
+        <li><a href="#13-14-the-pcs-physical-address-space--the-rom-bios">1.3 1.4 The PC&rsquo;s Physical Address Space &amp; The ROM BIOS</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-2-the-boot-loader">Part 2: The Boot Loader</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#exercise-4">Exercise 4.</a></li>
+            <li><a href="#exercise-5">Exercise 5.</a></li>
+            <li><a href="#exercise-6">Exercise 6.</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#part-3-the-kernel">Part 3: The Kernel</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#exercise-7"><strong>Exercise 7.</strong></a></li>
+            <li><a href="#exercise8">Exercise8</a></li>
+          </ul>
+        </li>
+        <li><a href="#the-stack">The Stack</a>
+          <ul>
+            <li><a href="#exercise-11">Exercise 11</a></li>
+            <li><a href="#exercise12">Exercise12</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#bootloader">bootloader</a></li>
+        <li><a href="#entrys">entry.S</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><a href="https://pdos.csail.mit.edu/6.828/2018/labs/lab1/" target="_blank" rel="noopener noreffer ">Lab 1: PC Bootstrap and GCC Calling Conventions </a></p>
+<h2 id="0-introduction">0 Introduction</h2>
+<p>实验分成三部分。第一部分集中于熟悉X86汇编语言、 QEMU x86仿真器和 PC 的开机引导程序。第二部分检查6.828内核的引导加载程序，它位于lab的<code>boot</code> 目录中。最后，第三部分将深入研究6.828内核本身的初始模板&mdash; JOS，位于内核目录中。</p>
+<h3 id="software-setup">Software Setup</h3>
+<p>环境：推荐使用 docker搭建Ubuntu18.04 或 20.04</p>
+<p>linux环境搭建：<a href="https://www.jianshu.com/p/46cb844273ca" target="_blank" rel="noopener noreffer ">docker 搭建纯净版Linux</a>   小问题：缺少git安装（apt install git）、实验环境没有与本地挂载，但影响不大</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir ~/6.828
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/6.828
+</span></span><span class="line"><span class="cl">git clone https://pdos.csail.mit.edu/6.828/2018/jos.git lab
+</span></span><span class="line"><span class="cl">git clone https://github.com/mit-pdos/6.828-qemu.git qemu
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> lab
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>qemu环境配置参考： <a href="https://github.com/woai3c/MIT6.828/blob/master/docs/install.md" target="_blank" rel="noopener noreffer ">MIT6.828/install.md</a></p>
+<h2 id="part-1-pc-bootstrap">Part 1: PC Bootstrap</h2>
+<p>介绍x86汇编语言和PC引导程序（PC Bootstrap），并开始使用QEMU和QEMU/GDB调试</p>
+<h3 id="11-getting-started-with-x86-assembly">1.1 Getting Started with x86 assembly</h3>
+<p>建议在继续lab2之前，熟悉一下x86汇编。</p>
+<p><a href="http://www.delorie.com/djgpp/doc/brennan/brennan_att_inline_djgpp.html" target="_blank" rel="noopener noreffer ">Inline Assembly with DJGPP</a>，实验参考资料；</p>
+<p><a href="https://pdos.csail.mit.edu/6.828/2018/readings/i386/toc.htm" target="_blank" rel="noopener noreffer ">80386 Programmer&rsquo;s Reference Manual</a>，80386手册后续实验需参考；</p>
+<div class="details admonition success open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-check-circle fa-fw" aria-hidden="true"></i>推荐资料<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>王爽 8086汇编语言，环境只需要一个 <a href="https://emu8086-microprocessor-emulator.en.softonic.com/" target="_blank" rel="noopener noreffer ">EMU8086模拟器即可</a>，初学耗时2 ~ 7days，无需前置知识</p>
+<p>CSAPP第三章 &amp; <a href="http://csapp.cs.cmu.edu/3e/labs.html" target="_blank" rel="noopener noreffer ">bomblab</a>，初学耗时7days+，做完此lab后对x86汇编和gdb会有很深的理解；</p>
+</div>
+        </div>
+    </div>
+<hr>
+<h3 id="12-simulating-the-x86">1.2 Simulating the x86</h3>
+<p>按照实验指导操作就行，简单地 <code>make</code> <code>make qemu-gdb</code> <code>make gdb</code>，推出qemu先按ctrl + a，再按x</p>
+<hr>
+<h3 id="13-14-the-pcs-physical-address-space--the-rom-bios">1.3 1.4 The PC&rsquo;s Physical Address Space &amp; The ROM BIOS</h3>
+<div align=center><img src="assets/address-space.jpg" width="60%"><p>
+    Address Space
+    </p></div>
+<p>现代处理器都会向下兼容之前的处理器，如80386 32bit 兼容8086/8088 16bit处理器，所以前1MB低地址还是与16bit 的内容一样；</p>
+<div class="details admonition quote open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>BIOS工作原理<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>BIOS的操作就是在控制，初始化，检测各种底层的设备，比如时钟，GDTR寄存器，以及设置中断向量表。作为PC启动后运行的第一段程序，	它最重要的功能是把操作系统从磁盘中导入内存，然后再把控制权转交给操作系统。所以BIOS在运行的最后会去检测可以从当前系统的哪个设备中找到操作系统，通常来说是我们的磁盘。也有可能是U盘等等。当BIOS确定了，操作系统位于磁盘中，那么它就会把这个磁盘的第一个扇区，通常把它叫做启动区（boot sector）先加载到内存中，这个启动区中包括一个非常重要的程序&ndash;boot loader，它会负责完成整个操作系统从磁盘导入内存的工作，以及一些其他的非常重要的配置工作。最后操作系统才会开始运行。</p>
+<p><a href="https://www.cnblogs.com/fatsheep9146/p/5078179.html" target="_blank" rel="noopener noreffer ">详细gdb过程可参考该博客</a></p>
+</div>
+        </div>
+    </div>
+<p>可参考<a href="#jump-bootloader" rel="">bootloader总结</a></p>
+<hr>
+<h2 id="part-2-the-boot-loader">Part 2: The Boot Loader</h2>
+<p><a href="https://www.cnblogs.com/JayL-zxl/p/14908346.html" target="_blank" rel="noopener noreffer ">boot.S &amp; main.c 做了什么可参考该博客 3. The Boot Loader</a></p>
+<div class="details admonition quote">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>ELF 格式详解<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p><em><strong>TODO</strong></em></p>
+<p>看完程序员的自我修养后来补充</p>
+</div>
+        </div>
+    </div>
+<h4 id="exercise-4">Exercise 4.</h4>
+<p>考察对C指针的掌握程度，如果没有C编译器的话，可下个<a href="https://sourceforge.net/projects/embarcadero-devcpp/" target="_blank" rel="noopener noreffer ">Dev-C++ for Windows  </a>简单的跑一下程序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">void</span>
+</span></span><span class="line"><span class="cl"><span class="nf">f</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="o">*</span><span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;1: a = %p, b = %p, c = %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;2: a[0] = %d, a[1] = %d, a[2] = %d, a[3] = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	   <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">301</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">3</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">302</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;3: a[0] = %d, a[1] = %d, a[2] = %d, a[3] = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	   <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;4: a[0] = %d, a[1] = %d, a[2] = %d, a[3] = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	   <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;5: a[0] = %d, a[1] = %d, a[2] = %d, a[3] = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	   <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="p">((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;6: a = %p, b = %p, c = %p</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">ac</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">av</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>结果是否想象的一样呢，当然这里的地址是不同的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a = 000000000062FDC0, b = 0000000000C61400, c = 0000000000000001
+</span></span><span class="line"><span class="cl">a[0] = 200, a[1] = 101, a[2] = 102, a[3] = 103
+</span></span><span class="line"><span class="cl">a[0] = 200, a[1] = 300, a[2] = 301, a[3] = 302
+</span></span><span class="line"><span class="cl">a[0] = 200, a[1] = 400, a[2] = 301, a[3] = 302
+</span></span><span class="line"><span class="cl">a[0] = 200, a[1] = 128144, a[2] = 256, a[3] = 302
+</span></span><span class="line"><span class="cl">a = 000000000062FDC0, b = 000000000062FDC4, c = 000000000062FDC1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h4 id="exercise-5">Exercise 5.</h4>
+<p>将<code>boot/Makefrag</code>中BIOS 将引导扇区的链接地址改为0x7C01，执行<code>make clean</code> <code>make</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$(OBJDIR)/boot/boot: $(BOOT_OBJS)
+</span></span><span class="line"><span class="cl">	@echo + ld boot/boot
+</span></span><span class="line"><span class="cl">	$(V)$(LD) $(LDFLAGS) -N -e start -Ttext 0x7C01 -o $@.out $^
+</span></span><span class="line"><span class="cl">	$(V)$(OBJDUMP) -S $@.out &gt;$@.asm
+</span></span><span class="line"><span class="cl">	$(V)$(OBJCOPY) -S -O binary -j .text $@.out $@
+</span></span><span class="line"><span class="cl">	$(V)perl boot/sign.pl $(OBJDIR)/boot/boot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>重新编译后BIOS把bootloader 链接到内存地址 也改为了0x7C01；</p>
+<div align=center><img src = "assets/image-20221026150833946.png" height="10%" width= "70%"></div>
+<p>然后重启gdb 一下，b *0x7c00，一直si，程序就会崩溃，just try it&hellip;</p>
+<h4 id="exercise-6">Exercise 6.</h4>
+<div align=center><img src = "assets/image-20221026153009412.png" height="10%" width= "70%"></div>
+<h2 id="part-3-the-kernel">Part 3: The Kernel</h2>
+<h4 id="exercise-7"><strong>Exercise 7.</strong></h4>
+<p>注释掉<code>mov %eax,%cr0</code> ，b *0x100025：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(gdb) x/8x 0x00100000
+</span></span><span class="line"><span class="cl">0x100000:	0x1badb002	0x00000000	0xe4524ffe	0x7205c766
+</span></span><span class="line"><span class="cl">0x100010:	0x34000004	0x7000b812	0x220f0011	0xc0200fd8
+</span></span><span class="line"><span class="cl">(gdb) x/8x 0xf0100000
+</span></span><span class="line"><span class="cl">0xf0100000 &lt;_start-268435468&gt;:	0x00000000	0x00000000	0x00000000	0x00000000
+</span></span><span class="line"><span class="cl">0xf0100010 &lt;entry+4&gt;:	0x00000000	0x00000000	0x00000000	0x00000000
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行完这条指令之后：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">(gdb) x/8x 0x00100000
+</span></span><span class="line"><span class="cl">0x100000:	0x1badb002	0x00000000	0xe4524ffe	0x7205c766
+</span></span><span class="line"><span class="cl">0x100010:	0x34000004	0x7000b812	0x220f0011	0xc0200fd8
+</span></span><span class="line"><span class="cl">(gdb) x/8x 0xf0100000
+</span></span><span class="line"><span class="cl">0xf0100000 <span class="p">&lt;</span><span class="nt">_start-268435468</span><span class="p">&gt;</span>:	0x1badb002	0x00000000	0xe4524ffe	0x7205c766
+</span></span><span class="line"><span class="cl">0xf0100010 <span class="p">&lt;</span><span class="nt">entry</span><span class="err">+</span><span class="na">4</span><span class="p">&gt;</span>:	0x34000004	0x7000b812	0x220f0011	0xc0200fd8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以发现，在执行这条指令之前，0xf0100000处是全0的，在执行之后，有了和0x00100000处一样的值。	是因为设置了控制寄存器CR0的某些项</p>
+<p>在entry.S中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">	# Turn on paging.
+</span></span><span class="line"><span class="cl">	movl	%cr0, %eax
+</span></span><span class="line"><span class="cl">	orl	$(CR0_PE|CR0_PG|CR0_WP), %eax
+</span></span><span class="line"><span class="cl">	movl	%eax, %cr0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这段汇编就是将%cr0 寄存器设置为CR0_PE|CR0_PG|CR0_WP；开启分页后，mmu硬件通过cr3找到页目录地址才有用；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// Control Register flags
+</span></span><span class="line"><span class="cl">#define CR0_PE		0x00000001	// Protection Enable
+</span></span><span class="line"><span class="cl">#define CR0_MP		0x00000002	// Monitor coProcessor
+</span></span><span class="line"><span class="cl">#define CR0_EM		0x00000004	// Emulation
+</span></span><span class="line"><span class="cl">#define CR0_TS		0x00000008	// Task Switched
+</span></span><span class="line"><span class="cl">#define CR0_ET		0x00000010	// Extension Type
+</span></span><span class="line"><span class="cl">#define CR0_NE		0x00000020	// Numeric Errror
+</span></span><span class="line"><span class="cl">#define CR0_WP		0x00010000	// Write Protect
+</span></span><span class="line"><span class="cl">#define CR0_AM		0x00040000	// Alignment Mask
+</span></span><span class="line"><span class="cl">#define CR0_NW		0x20000000	// Not Writethrough
+</span></span><span class="line"><span class="cl">#define CR0_CD		0x40000000	// Cache Disable
+</span></span><span class="line"><span class="cl">#define CR0_PG		0x80000000	// Paging
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在entry.S中可以看到，之后他尝试执行的指令是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mov	$relocated, %eax
+</span></span><span class="line"><span class="cl">jmp	*%eax
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>他要在执行C代码之前，跳转到KERNBASE上方，不再在低地址了。从gdb可以发现，这里移入<code>%eax</code>的值为0xf010002f，如果没有启用分页，那么跳转将会失败。</p>
+<p>可以发现当注释掉那一行之后，会导致内核崩溃，卡在<code>Booting from Hard Disk..</code>，同时利用GDB查看也可以看到，跳转进入的0xf010002c位置为全0。</p>
+<p><a href="https://blog.csdn.net/ZZHinclude/article/details/117897975" target="_blank" rel="noopener noreffer ">CR0寄存器是什么</a></p>
+<h4 id="exercise8">Exercise8</h4>
+<p>在 <code>printfmt.c</code> 中，参考一下上下文代码，修改一下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">		case &#39;o&#39;:
+</span></span><span class="line"><span class="cl">			// Replace this with your code.
+</span></span><span class="line"><span class="cl">			// putch(&#39;X&#39;, putdat);
+</span></span><span class="line"><span class="cl">			// putch(&#39;X&#39;, putdat);
+</span></span><span class="line"><span class="cl">			// putch(&#39;X&#39;, putdat);
+</span></span><span class="line"><span class="cl">			// break;
+</span></span><span class="line"><span class="cl">			num = getuint(&amp;ap, lflag);
+</span></span><span class="line"><span class="cl">			base = 8;
+</span></span><span class="line"><span class="cl">			goto number;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改完之后重新<code>make</code>就能显示&quot;6828 decimal is 15254 octal!&quot;</p>
+<p>问题解答参考 <a href="https://123xzy.github.io/2019/03/14/MIT-6-828-Lab-Booting-a-PC/" target="_blank" rel="noopener noreffer ">exercise 8</a> ，最重要的一个问题是参数压栈是从右往左压栈的，这样函数调用后使用栈中元素从下往上，就能模拟函数参数从左往右的顺序</p>
+<h3 id="the-stack">The Stack</h3>
+<p>函数调用时栈做的事情，理解这个图很重要，可参考csapp中文版 p164。</p>
+<div align=center><img src = "assets/call.stack.jpg" height="10%" width= "70%"></div>
+<h4 id="exercise-11">Exercise 11</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mon_backtrace</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">,</span> <span class="k">struct</span> <span class="n">Trapframe</span> <span class="o">*</span><span class="n">tf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Your code here.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">uint32_t</span><span class="o">*</span> <span class="n">ebp</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="o">*</span><span class="p">)</span><span class="n">read_ebp</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cprintf</span><span class="p">(</span><span class="s">&#34;Stack backtrace:</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// struct Eipdebuginfo* info;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">struct</span> <span class="n">Eipdebuginfo</span> <span class="n">info</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">uintptr_t</span> <span class="n">eip</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="n">ebp</span><span class="p">)</span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cprintf</span><span class="p">(</span><span class="s">&#34; ebp %x  eip %x  args %08x %08x %08x %08x %08x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ebp</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">3</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">4</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">5</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">6</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">		<span class="n">eip</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">ebp</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="o">*</span><span class="p">)(</span><span class="o">*</span><span class="n">ebp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行结果如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="m">6828</span> decimal is <span class="m">15254</span> octal!
+</span></span><span class="line"><span class="cl">entering test_backtrace <span class="m">5</span>
+</span></span><span class="line"><span class="cl">entering test_backtrace <span class="m">4</span>
+</span></span><span class="line"><span class="cl">entering test_backtrace <span class="m">3</span>
+</span></span><span class="line"><span class="cl">entering test_backtrace <span class="m">2</span>
+</span></span><span class="line"><span class="cl">entering test_backtrace <span class="m">1</span>
+</span></span><span class="line"><span class="cl">entering test_backtrace <span class="m">0</span>
+</span></span><span class="line"><span class="cl">Stack backtrace:
+</span></span><span class="line"><span class="cl"> ebp f010ff18  eip f01000a5  args <span class="m">00000000</span> <span class="m">00000000</span> <span class="m">00000000</span> f010004e f0111308
+</span></span><span class="line"><span class="cl"> ebp f010ff38  eip f010007a  args <span class="m">00000000</span> <span class="m">00000001</span> f010ff78 f010004e f0111308
+</span></span><span class="line"><span class="cl"> ebp f010ff58  eip f010007a  args <span class="m">00000001</span> <span class="m">00000002</span> f010ff98 f010004e f0111308
+</span></span><span class="line"><span class="cl"> ebp f010ff78  eip f010007a  args <span class="m">00000002</span> <span class="m">00000003</span> f010ffb8 f010004e f0111308
+</span></span><span class="line"><span class="cl"> ebp f010ff98  eip f010007a  args <span class="m">00000003</span> <span class="m">00000004</span> <span class="m">00000000</span> f010004e f0111308
+</span></span><span class="line"><span class="cl"> ebp f010ffb8  eip f010007a  args <span class="m">00000004</span> <span class="m">00000005</span> <span class="m">00000000</span> f010004e f0111308
+</span></span><span class="line"><span class="cl"> ebp f010ffd8  eip f01000fc  args <span class="m">00000005</span> 00001aac <span class="m">00000640</span> <span class="m">00000000</span> <span class="m">00000000</span>
+</span></span><span class="line"><span class="cl"> ebp f010fff8  eip f010003e  args <span class="m">00000003</span> <span class="m">00001003</span> <span class="m">00002003</span> <span class="m">00003003</span> <span class="m">00004003</span>
+</span></span><span class="line"><span class="cl">leaving test_backtrace <span class="m">0</span>
+</span></span><span class="line"><span class="cl">leaving test_backtrace <span class="m">1</span>
+</span></span><span class="line"><span class="cl">leaving test_backtrace <span class="m">2</span>
+</span></span><span class="line"><span class="cl">leaving test_backtrace <span class="m">3</span>
+</span></span><span class="line"><span class="cl">leaving test_backtrace <span class="m">4</span>
+</span></span><span class="line"><span class="cl">leaving test_backtrace <span class="m">5</span>
+</span></span><span class="line"><span class="cl">Welcome to the JOS kernel monitor!
+</span></span><span class="line"><span class="cl">Type <span class="s1">&#39;help&#39;</span> <span class="k">for</span> a list of commands.
+</span></span><span class="line"><span class="cl">K&gt; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="exercise12">Exercise12</h4>
+<p>在<code>kern/kdebug.c</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">stab_binsearch</span><span class="p">(</span><span class="n">stabs</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lline</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rline</span><span class="p">,</span> <span class="n">N_SLINE</span><span class="p">,</span> <span class="n">addr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">lline</span> <span class="o">&lt;=</span> <span class="n">rline</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">info</span><span class="o">-&gt;</span><span class="n">eip_line</span> <span class="o">=</span> <span class="n">stabs</span><span class="p">[</span><span class="n">lline</span><span class="p">].</span><span class="n">n_desc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>kern/monitor.c</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="nf">mon_backtrace</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">,</span> <span class="k">struct</span> <span class="n">Trapframe</span> <span class="o">*</span><span class="n">tf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="p">...</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span> <span class="p">(</span><span class="n">ebp</span><span class="p">)</span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cprintf</span><span class="p">(</span><span class="s">&#34; ebp %x  eip %x  args %08x %08x %08x %08x %08x</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ebp</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">3</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">4</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">5</span><span class="p">),</span><span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">6</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">		<span class="n">eip</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">ebp</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 加入下面三行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">debuginfo_eip</span><span class="p">(</span><span class="n">eip</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">info</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">eip</span> <span class="o">-</span> <span class="n">info</span><span class="p">.</span><span class="n">eip_fn_addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cprintf</span><span class="p">(</span><span class="s">&#34;%s:%d: %.*s+%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">info</span><span class="p">.</span><span class="n">eip_file</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">eip_line</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">eip_fn_namelen</span><span class="p">,</span><span class="n">info</span><span class="p">.</span><span class="n">eip_fn_name</span><span class="p">,</span> <span class="n">offset</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">		<span class="n">ebp</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="o">*</span><span class="p">)(</span><span class="o">*</span><span class="n">ebp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>kern/monitor.c</code>文件中的<code>commands</code>加入<code>backtrace</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="n">Command</span> <span class="n">commands</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span> <span class="s">&#34;help&#34;</span><span class="p">,</span> <span class="s">&#34;Display this list of commands&#34;</span><span class="p">,</span> <span class="n">mon_help</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span> <span class="s">&#34;kerninfo&#34;</span><span class="p">,</span> <span class="s">&#34;Display information about the kernel&#34;</span><span class="p">,</span> <span class="n">mon_kerninfo</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span> <span class="s">&#34;backtrace&#34;</span><span class="p">,</span> <span class="s">&#34;Display information about the stack&#34;</span><span class="p">,</span> <span class="n">mon_backtrace</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">K&gt; <span class="nb">help</span>
+</span></span><span class="line"><span class="cl"><span class="nb">help</span> - Display this list of commands
+</span></span><span class="line"><span class="cl">kerninfo - Display information about the kernel
+</span></span><span class="line"><span class="cl">backtrace - Display information about the stack
+</span></span><span class="line"><span class="cl">K&gt; backtrace
+</span></span><span class="line"><span class="cl">Stack backtrace:
+</span></span><span class="line"><span class="cl"> ebp f0110f58  eip f0100ab8  args <span class="m">00000001</span> f0110f80 <span class="m">00000000</span> f0100b20 f0100ac7
+</span></span><span class="line"><span class="cl">kern/monitor.c:140: monitor+343
+</span></span><span class="line"><span class="cl"> ebp f0110fd8  eip f0100109  args <span class="m">00000000</span> 00001aac <span class="m">00000640</span> <span class="m">00000000</span> <span class="m">00000000</span>
+</span></span><span class="line"><span class="cl">kern/init.c:43: i386_init+95
+</span></span><span class="line"><span class="cl"> ebp f0110ff8  eip f010003e  args <span class="m">00000003</span> <span class="m">00001003</span> <span class="m">00002003</span> <span class="m">00003003</span> <span class="m">00004003</span>
+</span></span><span class="line"><span class="cl">kern/entry.S:83: &lt;unknown&gt;+0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<h3 id="bootloader">bootloader</h3>
+<p><span id="jump-bootloader">简而言之</span>：PC加电后，首先会找到BIOS并获取PC的控制权，BIOS做的就是寻找可引导的磁盘<code>bootloader</code>，将其导入0x7c00处，然后将控制权交给<code>bootloader</code>  也就是boot.S &amp; main.c，boot.S主要是从8086/8088实模式进入保护模式、设置GDT表、为main.c函数设置栈然后跳到main.c，main.c 中会加载ELF可执行文件（这里即操作系统内核），然后通过一个tricky的方法将ELF-&gt;entry，即内核的入口转为函数指针同时调用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="p">((</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span> <span class="p">(</span><span class="n">ELFHDR</span><span class="o">-&gt;</span><span class="n">e_entry</span><span class="p">))();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时控制权就转到操作系统内核的入口地址，即entry.S</p>
+<p>PC启动后的运行顺序为 BIOS &ndash;&gt; boot loader &ndash;&gt; 操作系统内核</p>
+<hr>
+<h3 id="entrys">entry.S</h3>
+<p>进入内核后，将<code>entry_pgdir.c</code>中手写的<code>entry_pgdir</code>页表载入到页表寄存器CR3中，这样mmu硬件就有了自动转化虚拟地址 -&gt; 物理地址的能力仅限于当前页表中的转换，并打开分页；并为进入内核第一个c函数设置栈帧，包括栈基地址<code>ebp</code>和栈顶地址<code>esp</code>，这样就能实现函数的调用；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">movl	$0x0,%ebp			# nuke frame pointer
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Set the stack pointer
+</span></span><span class="line"><span class="cl">movl	$(bootstacktop),%esp
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># now to C code
+</span></span><span class="line"><span class="cl">call	i386_init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时系统便第一次处于内核态，内核首先会做一系列的初始化，然后交出cpu控制权给第一个进程比如shell，进入用户态，这样就能在控制台看到shell给我们的提示符</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>总的来说PC启动这一环节只需要知道它做了哪些非常重要的事情，其他细节了解即可，我们并不需要将重点放在细枝末节上，重点内容为stack</p>
+<hr>
+<p>可参考blog：</p>
+<p><a href="https://phimos.github.io/2020/02/28/6828-lab1/" target="_blank" rel="noopener noreffer ">Lab1 Pims的博客</a></p>
+<p><a href="https://jiyou.github.io/blog/2018/04/15/mit.6.828/jos-lab1/" target="_blank" rel="noopener noreffer ">Lab1 缘生故如幻</a></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-10-30&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/ea15ba0f2f8201be7d557f6f2eabf5af37d30720" target="_blank" title="commit by tio(3455223249@qq.com) ea15ba0f2f8201be7d557f6f2eabf5af37d30720: lab1">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>ea15ba0</a></span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/lab1/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://example.org/lab1/" data-title="6.828 Lab 1: Booting a PC" data-hashtags="MIT6.828"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://example.org/lab1/" data-hashtag="MIT6.828"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://example.org/lab1/" data-title="6.828 Lab 1: Booting a PC"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/lab1/" data-title="6.828 Lab 1: Booting a PC"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/lab1/" data-title="6.828 Lab 1: Booting a PC" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/mit6.828/">MIT6.828</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/theme-documentation-typeit-shortcode/" class="next" rel="next" title="主题文档 - typeit Shortcode">主题文档 - typeit Shortcode<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container">
+		<div class="footer-line">
+			<span id="run-time"></span>
+		</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">tio</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"QGzwQXOqs5JOhN4RGPOkR2mR-MdYXbMMI","appKey":"WBmoGyJtbqUswvfLh6L8iEBr","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"你的评论 ...","recordIP":true,"serverURLs":"https://leancloud.hugoloveit.com","visitor":true}},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
+</html>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>MIT6.828 - 标签 - tiolog</title>
+        <link>http://example.org/tags/mit6.828/</link>
+        <description>MIT6.828 - 标签 - tiolog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xxx@xx.cn (tio)</managingEditor>
+            <webMaster>xxx@xx.cn (tio)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 23 Oct 2022 20:31:36 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/mit6.828/" rel="self" type="application/rss+xml" /><item>
+    <title>6.828 Lab 1: Booting a PC</title>
+    <link>http://example.org/lab1/</link>
+    <pubDate>Sun, 23 Oct 2022 20:31:36 &#43;0800</pubDate>
+    <author>tio</author>
+    <guid>http://example.org/lab1/</guid>
+    <description><![CDATA[6.828 lab1 总结]]></description>
+</item>
+</channel>
+</rss>

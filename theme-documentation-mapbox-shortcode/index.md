@@ -1,85 +1,85 @@
-# Theme Documentation - mapbox Shortcode
+# 主题文档 - mapbox Shortcode
 
 
 {{< version 0.2.0 >}}
 
-The `mapbox` shortcode supports interactive maps in Hugo with [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js) library.
+`mapbox` shortcode 使用 [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js) 库提供互动式地图的功能.
 
 <!--more-->
 
-**Mapbox GL JS** is a JavaScript library that uses WebGL to render interactive maps from [vector tiles](https://docs.mapbox.com/help/glossary/vector-tiles/) and [Mapbox styles](https://docs.mapbox.com/mapbox-gl-js/style-spec/).
+**Mapbox GL JS** 是一个 JavaScript 库，它使用 WebGL, 以 [vector tiles](https://docs.mapbox.com/help/glossary/vector-tiles/) 和 [Mapbox styles](https://docs.mapbox.com/mapbox-gl-js/style-spec/) 为来源, 将它们渲染成互动式地图.
 
-The `mapbox` shortcode has the following named parameters to use Mapbox GL JS:
+`mapbox` shortcode 有以下命名参数来使用 Mapbox GL JS:
 
-* **lng** *[required]* (**first** positional parameter)
+* **lng** *[必需]* (**第一个**位置参数)
 
-    Longitude of the inital centerpoint of the map, measured in degrees.
+    地图初始中心点的经度, 以度为单位.
 
-* **lat** *[required]* (**second** positional parameter)
+* **lat** *[必需]* (**第二个**位置参数)
 
-    Latitude of the inital centerpoint of the map, measured in degrees.
+    地图初始中心点的纬度, 以度为单位.
 
-* **zoom** *[optional]* (**third** positional parameter)
+* **zoom** *[可选]* (**第三个**位置参数)
 
-    The initial zoom level of the map, default value is `10`.
+    地图的初始缩放级别, 默认值是 `10`.
 
-* **marked** *[optional]* (**fourth** positional parameter)
+* **marked** *[可选]* (**第四个**位置参数)
 
-    Whether to add a marker at the inital centerpoint of the map, default value is `true`.
+    是否在地图的初始中心点添加图钉, 默认值是 `true`.
 
-* **light-style** *[optional]* (**fifth** positional parameter)
+* **light-style** *[可选]* (**第五个**位置参数)
 
-    Style for the light theme, default value is the value set in the [front matter](../theme-documentation-content#front-matter) or the [site configuration](../theme-documentation-basics#site-configuration).
+    浅色主题的地图样式, 默认值是[前置参数](../theme-documentation-content#front-matter)或者[网站配置](../theme-documentation-basics#site-configuration)中设置的值.
 
-* **dark-style** *[optional]* (**sixth** positional parameter)
+* **dark-style** *[可选]* (**第六个**位置参数)
 
-    Style for the dark theme, default value is the value set in the [front matter](../theme-documentation-content#front-matter) or the [site configuration](../theme-documentation-basics#site-configuration).
+    深色主题的地图样式, 默认值是[前置参数](../theme-documentation-content#front-matter)或者[网站配置](../theme-documentation-basics#site-configuration)中设置的值.
 
-* **navigation** *[optional]*
+* **navigation** *[可选]*
 
-    Whether to add [NavigationControl](https://docs.mapbox.com/mapbox-gl-js/api#navigationcontrol), default value is the value set in the [front matter](../theme-documentation-content#front-matter) or the [site configuration](../theme-documentation-basics#site-configuration).
+    是否添加 [NavigationControl](https://docs.mapbox.com/mapbox-gl-js/api#navigationcontrol), 默认值是[前置参数](../theme-documentation-content#front-matter)或者[网站配置](../theme-documentation-basics#site-configuration)中设置的值.
 
-* **geolocate** *[optional]*
+* **geolocate** *[可选]*
 
-    Whether to add [GeolocateControl](https://docs.mapbox.com/mapbox-gl-js/api#geolocatecontrol), default value is the value set in the [front matter](../theme-documentation-content#front-matter) or the [site configuration](../theme-documentation-basics#site-configuration).
+    是否添加 [GeolocateControl](https://docs.mapbox.com/mapbox-gl-js/api#geolocatecontrol), 默认值是[前置参数](../theme-documentation-content#front-matter)或者[网站配置](../theme-documentation-basics#site-configuration)中设置的值.
 
-* **scale** *[optional]*
+* **scale** *[可选]*
 
-    Whether to add [ScaleControl](https://docs.mapbox.com/mapbox-gl-js/api#scalecontrol), default value is the value set in the [front matter](../theme-documentation-content#front-matter) or the [site configuration](../theme-documentation-basics#site-configuration).
+    是否添加 [ScaleControl](https://docs.mapbox.com/mapbox-gl-js/api#scalecontrol), 默认值是[前置参数](../theme-documentation-content#front-matter)或者[网站配置](../theme-documentation-basics#site-configuration)中设置的值.
 
-* **fullscreen** *[optional]*
+* **fullscreen** *[可选]*
 
-    Whether to add [FullscreenControl](https://docs.mapbox.com/mapbox-gl-js/api#fullscreencontrol), default value is the value set in the [front matter](../theme-documentation-content#front-matter) or the [site configuration](../theme-documentation-basics#site-configuration).
+   是否添加 [FullscreenControl](https://docs.mapbox.com/mapbox-gl-js/api#fullscreencontrol), 默认值是[前置参数](../theme-documentation-content#front-matter)或者[网站配置](../theme-documentation-basics#site-configuration)中设置的值.
 
-* **width** *[optional]*
+* **width** *[可选]*
 
-    Width of the map, default value is `100%`.
+    地图的宽度, 默认值是 `100%`.
 
-* **height** *[optional]*
+* **height** *[可选]*
 
-    Height of the map, default value is `20rem`.
+    地图的高度, 默认值是 `20rem`.
 
-Example simple `mapbox` input:
+一个简单的 `mapbox` 示例:
 
 ```markdown
 {{</* mapbox 121.485 31.233 12 */>}}
-Or
+或者
 {{</* mapbox lng=121.485 lat=31.233 zoom=12 */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< mapbox 121.485 31.233 12 >}}
 
-Example `mapbox` input with the custom style:
+一个带有自定义样式的 `mapbox` 示例:
 
 ```markdown
-{{</* mapbox -122.252 37.453 10 false "mapbox://styles/mapbox/navigation-preview-day-v4" "mapbox://styles/mapbox/navigation-preview-night-v4" */>}}
-Or
-{{</* mapbox lng=-122.252 lat=37.453 zoom=10 marked=false light-style="mapbox://styles/mapbox/navigation-preview-day-v4" dark-style="mapbox://styles/mapbox/navigation-preview-night-v4" */>}}
+{{</* mapbox -122.252 37.453 10 false "mapbox://styles/mapbox/streets-zh-v1?optimize=true" */>}}
+或者
+{{</* mapbox lng=-122.252 lat=37.453 zoom=10 marked=false light-style="mapbox://styles/mapbox/streets-zh-v1?optimize=true" */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
-{{< mapbox -122.252 37.453 10 false "mapbox://styles/mapbox/navigation-preview-day-v4?optimize=true" "mapbox://styles/mapbox/navigation-preview-night-v4?optimize=true" >}}
+{{< mapbox -122.252 37.453 10 false "mapbox://styles/mapbox/streets-zh-v1?optimize=true" >}}
 

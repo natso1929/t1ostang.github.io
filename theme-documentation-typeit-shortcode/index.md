@@ -1,51 +1,51 @@
-# Theme Documentation - typeit Shortcode
+# 主题文档 - typeit Shortcode
 
 
-The `typeit` shortcode provides typing animation based on [TypeIt](https://typeitjs.com/) library.
+`typeit` shortcode 基于 [TypeIt](https://typeitjs.com/) 库提供了打字动画.
 
 <!--more-->
 
-Just insert your content in the `typeit` shortcode and that’s it.
+只需将你需要打字动画的内容插入 `typeit` shortcode 中即可.
 
-## 1 Simple Content {#simple-content}
+## 1 简单内容 {#simple-content}
 
-Simple content is allowed in `Markdown` format and **without** rich block content such as images and more...
+允许使用 `Markdown` 格式的简单内容, 并且 **不包含** 富文本的块内容, 例如图像等等...
 
-Example `typeit` input:
+一个 `typeit` 示例:
 
 ```markdown
 {{</* typeit */>}}
-This is a *paragraph* with **typing animation** based on [TypeIt](https://typeitjs.com/)...
+这一个带有基于 [TypeIt](https://typeitjs.com/) 的 **打字动画** 的 *段落*...
 {{</* /typeit */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< typeit >}}
-This is a *paragraph* with **typing animation** based on [TypeIt](https://typeitjs.com/)...
+这一个带有基于 [TypeIt](https://typeitjs.com/) 的 **打字动画** 的 *段落*...
 {{< /typeit >}}
 
-Alternatively, you can use custom **HTML tags**.
+另外, 你也可以自定义 **HTML 标签**.
 
-Example `typeit` input with `h4` tag:
+一个带有 `h4` 标签的 `typeit` 示例:
 
 ```markdown
 {{</* typeit tag=h4 */>}}
-This is a *paragraph* with **typing animation** based on [TypeIt](https://typeitjs.com/)...
+这一个带有基于 [TypeIt](https://typeitjs.com/) 的 **打字动画** 的 *段落*...
 {{</* /typeit */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< typeit tag=h4 >}}
-This is a *paragraph* with **typing animation** based on [TypeIt](https://typeitjs.com/)...
+这一个带有基于 [TypeIt](https://typeitjs.com/) 的 **打字动画** 的 *段落*...
 {{< /typeit >}}
 
-## 2 Code Content {#code-content}
+## 2 代码内容 {#code-content}
 
-Code content is allowed and will be highlighted by named parameter `code` for the type of code language.
+代码内容也是允许的, 并且通过使用参数 `code` 指定语言类型可以实习语法高亮.
 
-Example `typeit` input with `code`:
+一个带有 `code` 参数的 `typeit` 示例:
 
 ```markdown
 {{</* typeit code=java */>}}
@@ -57,7 +57,7 @@ public class HelloWorld {
 {{</* /typeit */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< typeit code=java >}}
 public class HelloWorld {
@@ -67,32 +67,32 @@ public class HelloWorld {
 }
 {{< /typeit >}}
 
-## 3 Group Content {#group-content}
+## 3 分组内容 {#code-content}
 
-All typing animations start at the same time by default.
-But sometimes you may want to start a set of `typeit` contents in order.
+默认情况下, 所有打字动画都是同时开始的.
+但是有时你可能需要按顺序开始一组 `typeit` 内容的打字动画.
 
-A set of `typeit` contents with the same value of named parameter `group` will start typing animation in sequence.
+一组具有相同 `group` 参数值的 `typeit` 内容将按顺序开始打字动画.
 
-Example `typeit` input with `group`:
+一个带有 `group` 参数的 `typeit` 示例:
 
 ```markdown
 {{</* typeit group=paragraph */>}}
-**First** this paragraph begins
+**首先**, 这个段落开始
 {{</* /typeit */>}}
 
 {{</* typeit group=paragraph */>}}
-**Then** this paragraph begins
+**然后**, 这个段落开始
 {{</* /typeit */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< typeit group=paragraph >}}
-**First** this paragraph begins
+**首先**, 这个段落开始
 {{< /typeit >}}
 
 {{< typeit group=paragraph >}}
-**Then** this paragraph begins
+**然后**, 这个段落开始
 {{< /typeit >}}
 

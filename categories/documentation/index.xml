@@ -1,90 +1,91 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Documentation - Category - LoveIt</title>
+        <title>文档 - 分类 - tiolog</title>
         <link>http://example.org/categories/documentation/</link>
-        <description>Documentation - Category - LoveIt</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/documentation/" rel="self" type="application/rss+xml" /><item>
-    <title>Theme Documentation - Basics</title>
-    <link>http://example.org/theme-documentation-basics/</link>
-    <pubDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://example.org/theme-documentation-basics/</guid>
-    <description><![CDATA[<p>Discover what the Hugo - <strong>LoveIt</strong> theme is all about and the core-concepts behind it.</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - Content</title>
+        <description>文档 - 分类 - tiolog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xxx@xx.cn (tio)</managingEditor>
+            <webMaster>xxx@xx.cn (tio)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="http://example.org/categories/documentation/" rel="self" type="application/rss+xml" /><item>
+    <title>主题文档 - 内容</title>
     <link>http://example.org/theme-documentation-content/</link>
-    <pubDate>Thu, 05 Mar 2020 15:58:26 &#43;0800</pubDate>
+    <pubDate>Thu, 05 Mar 2020 16:30:05 &#43;0800</pubDate>
     <author>Dillon</author>
     <guid>http://example.org/theme-documentation-content/</guid>
-    <description><![CDATA[<p>Find out how to create and organize your content quickly and intuitively in <strong>LoveIt</strong> theme.</p>]]></description>
+    <description><![CDATA[<p>了解如何在 <strong>LoveIt</strong> 主题中快速, 直观地创建和组织内容.</p>]]></description>
 </item>
 <item>
-    <title>Theme Documentation - Built-in Shortcodes</title>
+    <title>主题文档 - 内置 Shortcodes</title>
     <link>http://example.org/theme-documentation-built-in-shortcodes/</link>
-    <pubDate>Wed, 04 Mar 2020 16:29:41 &#43;0800</pubDate>
+    <pubDate>Wed, 04 Mar 2020 16:29:59 &#43;0800</pubDate>
     <author>Dillon</author>
     <guid>http://example.org/theme-documentation-built-in-shortcodes/</guid>
-    <description><![CDATA[<p><strong>Hugo</strong> provides multiple built-in shortcodes for author convenience and to keep your markdown content clean.</p>]]></description>
+    <description><![CDATA[<p><strong>Hugo</strong> 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容的整洁.</p>]]></description>
 </item>
 <item>
-    <title>Theme Documentation - Extended Shortcodes</title>
+    <title>主题文档 - 扩展 Shortcodes</title>
     <link>http://example.org/theme-documentation-extended-shortcodes/</link>
-    <pubDate>Tue, 03 Mar 2020 16:29:41 &#43;0800</pubDate>
+    <pubDate>Tue, 03 Mar 2020 16:29:59 &#43;0800</pubDate>
     <author>Dillon</author>
     <guid>http://example.org/theme-documentation-extended-shortcodes/</guid>
-    <description><![CDATA[<p><strong>LoveIt</strong> theme provides multiple shortcodes on top of built-in ones in Hugo.</p>]]></description>
+    <description><![CDATA[<p><strong>LoveIt</strong> 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode.</p>]]></description>
 </item>
 <item>
-    <title>Theme Documentation - mermaid Shortcode</title>
+    <title>主题文档 - mermaid Shortcode</title>
     <link>http://example.org/theme-documentation-mermaid-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 15:29:41 &#43;0800</pubDate>
+    <pubDate>Tue, 03 Mar 2020 15:29:59 &#43;0800</pubDate>
     <author>Dillon</author>
     <guid>http://example.org/theme-documentation-mermaid-shortcode/</guid>
     <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.11" rel="noopener noreffer" target="_blank"></a>
-<p>The <code>mermaid</code> shortcode supports diagrams in Hugo with <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener noreffer ">Mermaid</a> library.</p>]]></description>
+<p><code>mermaid</code> shortcode 使用 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener noreffer ">Mermaid</a> 库提供绘制图表和流程图的功能.</p>]]></description>
 </item>
 <item>
-    <title>Theme Documentation - echarts Shortcode</title>
+    <title>主题文档 - echarts Shortcode</title>
     <link>http://example.org/theme-documentation-echarts-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 14:29:41 &#43;0800</pubDate>
+    <pubDate>Tue, 03 Mar 2020 14:29:59 &#43;0800</pubDate>
     <author>Dillon</author>
     <guid>http://example.org/theme-documentation-echarts-shortcode/</guid>
-    <description><![CDATA[<p>The <code>echarts</code> shortcode supports data visualization in Hugo with <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreffer ">ECharts</a> library.</p>]]></description>
+    <description><![CDATA[<p><code>echarts</code> shortcode 使用 <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreffer ">ECharts</a> 库提供数据可视化的功能.</p>]]></description>
 </item>
 <item>
-    <title>Theme Documentation - mapbox Shortcode</title>
+    <title>主题文档 - mapbox Shortcode</title>
     <link>http://example.org/theme-documentation-mapbox-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 13:29:41 &#43;0800</pubDate>
+    <pubDate>Tue, 03 Mar 2020 13:29:59 &#43;0800</pubDate>
     <author>Dillon</author>
     <guid>http://example.org/theme-documentation-mapbox-shortcode/</guid>
     <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p>The <code>mapbox</code> shortcode supports interactive maps in Hugo with <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer ">Mapbox GL JS</a> library.</p>]]></description>
+<p><code>mapbox</code> shortcode 使用 <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer ">Mapbox GL JS</a> 库提供互动式地图的功能.</p>]]></description>
 </item>
 <item>
-    <title>Theme Documentation - music Shortcode</title>
+    <title>主题文档 - 基本概念</title>
+    <link>http://example.org/theme-documentation-basics/</link>
+    <pubDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</pubDate>
+    <author>Dillon</author>
+    <guid>http://example.org/theme-documentation-basics/</guid>
+    <description><![CDATA[<p>探索 Hugo - <strong>LoveIt</strong> 主题的全部内容和背后的核心概念.</p>]]></description>
+</item>
+<item>
+    <title>主题文档 - music Shortcode</title>
     <link>http://example.org/theme-documentation-music-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 12:29:41 &#43;0800</pubDate>
+    <pubDate>Tue, 03 Mar 2020 12:29:59 &#43;0800</pubDate>
     <author>Dillon</author>
     <guid>http://example.org/theme-documentation-music-shortcode/</guid>
-    <description><![CDATA[<p>The <code>music</code> shortcode embeds a responsive music player based on <a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener noreffer ">APlayer</a> and <a href="https://github.com/metowolf/MetingJS" target="_blank" rel="noopener noreffer ">MetingJS</a>.</p>]]></description>
+    <description><![CDATA[<p><code>music</code> shortcode 基于 <a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener noreffer ">APlayer</a> 和 <a href="https://github.com/metowolf/MetingJS" target="_blank" rel="noopener noreffer ">MetingJS</a> 库提供了一个内嵌的响应式音乐播放器.</p>]]></description>
 </item>
 <item>
-    <title>Theme Documentation - bilibili Shortcode</title>
+    <title>主题文档 - bilibili Shortcode</title>
     <link>http://example.org/theme-documentation-bilibili-shortcode/</link>
     <pubDate>Tue, 03 Mar 2020 11:29:41 &#43;0800</pubDate>
     <author>Dillon</author>
     <guid>http://example.org/theme-documentation-bilibili-shortcode/</guid>
     <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p>The <code>bilibili</code> shortcode embeds a responsive video player for bilibili videos.</p>]]></description>
+<p><code>bilibili</code> shortcode 提供了一个内嵌的用来播放 bilibili 视频的响应式播放器.</p>]]></description>
 </item>
 <item>
-    <title>Theme Documentation - typeit Shortcode</title>
+    <title>主题文档 - typeit Shortcode</title>
     <link>http://example.org/theme-documentation-typeit-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 10:29:41 &#43;0800</pubDate>
+    <pubDate>Tue, 03 Mar 2020 10:29:59 &#43;0800</pubDate>
     <author>Dillon</author>
     <guid>http://example.org/theme-documentation-typeit-shortcode/</guid>
-    <description><![CDATA[<p>The <code>typeit</code> shortcode provides typing animation based on <a href="https://typeitjs.com/" target="_blank" rel="noopener noreffer ">TypeIt</a> library.</p>]]></description>
+    <description><![CDATA[<p><code>typeit</code> shortcode 基于 <a href="https://typeitjs.com/" target="_blank" rel="noopener noreffer ">TypeIt</a> 库提供了打字动画.</p>]]></description>
 </item>
 </channel>
 </rss>

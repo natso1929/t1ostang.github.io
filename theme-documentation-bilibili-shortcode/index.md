@@ -1,46 +1,45 @@
-# Theme Documentation - bilibili Shortcode
+# 主题文档 - bilibili Shortcode
 
 
 {{< version 0.2.0 changed >}}
 
-The `bilibili` shortcode embeds a responsive video player for bilibili videos.
+`bilibili` shortcode 提供了一个内嵌的用来播放 bilibili 视频的响应式播放器.
 
 <!--more-->
 
-When the video only has one part, only the BV `id` of the video is required, e.g.:
+如果视频只有一个部分, 则仅需要视频的 BV `id`, 例如:
 
 ```code
 https://www.bilibili.com/video/BV1Sx411T7QQ
 ```
 
-Example `bilibili` input:
+一个 `bilibili` 示例:
 
 ```markdown
 {{</* bilibili BV1Sx411T7QQ */>}}
-Or
+或者
 {{</* bilibili id=BV1Sx411T7QQ */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< bilibili id=BV1Sx411T7QQ >}}
 
-When the video has multiple parts, in addition to the BV `id` of the video,
-`p` is also required, whose default value is `1`, e.g.:
+如果视频包含多个部分, 则除了视频的 BV `id` 之外, 还需要 `p`, 默认值为 `1`, 例如:
 
 ```code
 https://www.bilibili.com/video/BV1TJ411C7An?p=3
 ```
 
-Example `bilibili` input with `p`:
+一个带有 `p` 参数的 `bilibili` 示例:
 
 ```markdown
 {{</* bilibili BV1TJ411C7An 3 */>}}
-Or
+或者
 {{</* bilibili id=BV1TJ411C7An p=3 */>}}
 ```
 
-The rendered output looks like this:
+呈现的输出效果如下:
 
 {{< bilibili id=BV1TJ411C7An p=3 >}}
 
